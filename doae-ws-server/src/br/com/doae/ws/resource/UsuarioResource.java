@@ -26,6 +26,8 @@ import br.com.doae.ws.server.jpa.exception.CommitException;
 import br.com.doae.ws.server.jpa.singleton.EntityManagerFactorySingleton;
 
 @Path("/usuario")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class UsuarioResource {
 
 	public UsuarioDAO dao;
@@ -37,21 +39,18 @@ public class UsuarioResource {
 	}
 
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
 	public List<Usuario> listar(){
 		return dao.listar();
 	}
 
 	@Path("{id}")
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
 	public Usuario pesquisar(@PathParam("id") int codigo){
 		return dao.pesquisar(codigo);
 
 	}
 
 	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
 	public Response cadastrar(Usuario Usuario, @Context UriInfo uri) {
 		try {
 			dao.inserir(Usuario);
@@ -81,7 +80,6 @@ public class UsuarioResource {
 
 	@PUT
 	@Path("{id}")
-	@Consumes(MediaType.APPLICATION_JSON)
 	public Response atualizar(Usuario Usuario,
 			@PathParam("id") int codigo) {
 		try {
