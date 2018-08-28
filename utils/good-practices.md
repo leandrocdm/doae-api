@@ -5,7 +5,7 @@
 Para o desenvolvimento, criar a branch `dev` a partir da `master` e as branches
 de mudança a partir da `dev`.
 
-Os nomes das branches têm que indicar o tipo da mudança `[bug, feature]` e o
+Os nomes das branches têm que indicar o tipo da mudança `[bug, feature, upgrade]` e o
 principal componente da mesma, sendo dividos por uma barra `/` e sempre em lower-case.
 
 Ex: `bug/dashboard`, `feature/menu-lateral`
@@ -22,7 +22,7 @@ Caso queira dar mais informações, quebrar a linha duas vezes e inserir uma des
 
 ## Merges
 
-### Fluxo dos commits e merges
+### Fluxo dos commits e merge
 
 `git checkout -b [nome-da-branch]` (Cria e redireciona para a branch)
 
