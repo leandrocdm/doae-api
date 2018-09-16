@@ -1,10 +1,29 @@
 package br.com.doae.ws.server.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="T_DOAE_EST_SANGUE")
+@SequenceGenerator(name="estoqueSangue", sequenceName="SQ_DOAE_EST_SANGUE", allocationSize=1)
 public class EstoqueSangue {
 	
+	@Id
+	@Column(name="cd_codigo")
+	@GeneratedValue(generator="estoqueSangue", strategy=GenerationType.SEQUENCE)
 	private int codigo;
+	
+	@Column(name="vl_quantidade_maxima", nullable=false)
 	private int qtdMaxima;
+	
+	@Column(name="vl_quantidade_atual", nullable=false)
 	private int qtdAtual;
+	
 	private Sangue sangue;
 	private Hemocentro hemocentro;
 

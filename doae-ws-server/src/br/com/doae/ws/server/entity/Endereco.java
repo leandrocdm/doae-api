@@ -1,16 +1,47 @@
 package br.com.doae.ws.server.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="T_DOAE_ENDERECO")
+@SequenceGenerator(name="endereco", sequenceName="SQ_DOAE_ENDERECO")
 public class Endereco {
 	
+	@Id
+	@GeneratedValue(generator="endereco", strategy=GenerationType.SEQUENCE)
 	private int codigo;
+	
+	@Column(name="tx_longradouro", nullable=false)
 	private String longradouro;
+	
+	@Column(name="vl_numero", nullable=false)
 	private int numero;
+	
+	@Column(name="tx_complemento")
 	private String complemento;
-	private String Bairro;
+	
+	@Column(name="tx_bairro", nullable=false)
+	private String bairro;
+	
+	@Column(name="cd_cep", nullable=false)
 	private long cep;
+	
+	@Column(name="tx_cidade", nullable=false)
 	private String cidade;
+	
+	@Column(name="tx_estado", nullable=false)
 	private String estado;
+	
+	@Column(name="cd_latitude")
 	private float latitude;
+	
+	@Column(name="cd_longitude")
 	private float longitude;
 	
 	public Endereco() {super();}
@@ -22,14 +53,13 @@ public class Endereco {
 		this.longradouro = longradouro;
 		this.numero = numero;
 		this.complemento = complemento;
-		Bairro = bairro;
+		this.bairro = bairro;
 		this.cep = cep;
 		this.cidade = cidade;
 		this.estado = estado;
 		this.latitude = latitude;
 		this.longitude = longitude;
 	}
-
 
 	public int getCodigo() {
 		return codigo;
@@ -56,10 +86,10 @@ public class Endereco {
 		this.complemento = complemento;
 	}
 	public String getBairro() {
-		return Bairro;
+		return bairro;
 	}
 	public void setBairro(String bairro) {
-		Bairro = bairro;
+		this.bairro = bairro;
 	}
 	public long getCep() {
 		return cep;

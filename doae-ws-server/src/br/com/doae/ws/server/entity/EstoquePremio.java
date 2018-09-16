@@ -1,10 +1,25 @@
 package br.com.doae.ws.server.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="T_DOAE_EST_PREMIO")
+@SequenceGenerator(name="estoquePremio", sequenceName="SQ_DOAE_EST_PREMIO", allocationSize=1)
 public class EstoquePremio {
 	
+	@Id
+	@GeneratedValue(generator="estoquePremio", strategy=GenerationType.SEQUENCE)
 	private int codigo;
-	private Premio premio;
+	
+	@Column(name="vl_quantidade", nullable=false)
 	private int quantidade;
+	private Premio premio;
 
 	public EstoquePremio() {super();}
 
