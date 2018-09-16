@@ -1,51 +1,62 @@
 package br.com.doae.ws.server.entity;
 
-public class Premio {
-
+public class Missao {
+	
 	private int codigo;
 	private String nome;
+	private TipoMissao tipoMissao;
 	private String descricao;
 	private int pontos;
-	private Parceiro parceiro;
+	
+	public Missao() {super();}
 
-	public Premio() {super();}
-
-	public Premio(String nome, String descricao, int pontos, Parceiro parceiro) {
+	public Missao(String nome, TipoMissao tipoMissao, String descricao, int pontos) {
 		super();
 		this.nome = nome;
+		this.tipoMissao = tipoMissao;
 		this.descricao = descricao;
 		this.pontos = pontos;
-		this.parceiro = parceiro;
 	}
 
 	public int getCodigo() {
 		return codigo;
 	}
+
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public TipoMissao getTipoMissao() {
+		return tipoMissao;
+	}
+
+	public void setTipoMissao(TipoMissao tipoMissao) {
+		this.tipoMissao = tipoMissao;
+	}
+
 	public String getDescricao() {
 		return descricao;
 	}
+
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
 	public int getPontos() {
 		return pontos;
 	}
+
 	public void setPontos(int pontos) {
 		this.pontos = pontos;
 	}
-	public Parceiro getParceiro() {
-		return parceiro;
-	}
-	public void setParceiro(Parceiro parceiro) {
-		this.parceiro = parceiro;
-	}
+	
+
 }
