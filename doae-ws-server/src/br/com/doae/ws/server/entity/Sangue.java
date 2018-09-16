@@ -1,9 +1,30 @@
 package br.com.doae.ws.server.entity;
 
-public class Sangue {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="T_DOAE_SANGUE")
+@SequenceGenerator(name="sangue", sequenceName="SQ_DOAE_SANGUE", allocationSize=1)
+public class Sangue {
+	
+	@Id
+	@Column(name="cd_codigo")
+	@GeneratedValue(generator="sangue", strategy=GenerationType.SEQUENCE)
 	private int codigo;
+	
+	@Enumerated
+	@Column(name="ds_tipo", nullable=false)
 	private TipoSangue tipoSangue;
+	
+	@Enumerated
+	@Column(name="ds_fator_rh", nullable=false)
 	private FatorRH fator;
 
 	public Sangue() {super();}

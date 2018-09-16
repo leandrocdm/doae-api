@@ -1,11 +1,35 @@
 package br.com.doae.ws.server.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="T_DOAE_MISSAO")
+@SequenceGenerator(name="missao", sequenceName="SQ_DOAE_MISSAO", allocationSize=1)
 public class Missao {
 	
+	@Id
+	@Column(name="cd_codigo")
+	@GeneratedValue(generator="missao", strategy=GenerationType.SEQUENCE)
 	private int codigo;
+	
+	@Column(name="tx_nome", nullable=false)
 	private String nome;
+	
+	@Enumerated
+	@Column(name="tp_missao", nullable=false)
 	private TipoMissao tipoMissao;
+	
+	@Column(name="tx_descricao", nullable=false)
 	private String descricao;
+	
+	@Column(name="vl_pontos")
 	private int pontos;
 	
 	public Missao() {super();}

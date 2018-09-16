@@ -1,11 +1,32 @@
 package br.com.doae.ws.server.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="T_DOAE_HEMOCENTRO")
+@SequenceGenerator(name="hemocentro", sequenceName="SQ_DOAE_HEMOCENTRO", allocationSize=1)
 public class Hemocentro {
 
+	@Id
+	@Column(name="cd_codigo")
+	@GeneratedValue(generator="hemocentro", strategy=GenerationType.SEQUENCE)
 	private int codigo;
+	
+	@Column(name="tx_nome", nullable=false)
 	private String nome;
+	
+	@Column(name="nr_telefone", nullable=false)
 	private long telefone;
+	
+	@Column(name="ds_email", nullable=false)
 	private String email;
+	
 	private Endereco endereco;
 
 	public Hemocentro() {super();}

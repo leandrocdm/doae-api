@@ -2,12 +2,35 @@ package br.com.doae.ws.server.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="T_DOAE_COMPRA")
+@SequenceGenerator(name="compra", sequenceName="SQ_DOAE_COMPRA", allocationSize=1)
 public class Compra {
 	
+	@Id
+	@Column(name="cd_codigo")
+	@GeneratedValue(generator="compra", strategy=GenerationType.SEQUENCE)
 	private int codigo;
+	
+	@Column(name="nr_valor", nullable=false)
 	private int valor;
+	
+	@Column(name="dt_data_compra")
 	private Date dataCompra;
+	
+	@Enumerated
+	@Column(name="ds_status", nullable=false)
 	private StatusCompra status;
+	
 	private Usuario usuario;
 	private Premio premio;
 	
