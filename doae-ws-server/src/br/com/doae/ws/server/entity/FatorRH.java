@@ -1,7 +1,6 @@
 package br.com.doae.ws.server.entity;
 
-public enum TipoSangue {
+public enum FatorRH {
 
-	A, B, AB, O
-
+	POSITIVO, NEGATIVO
 }
