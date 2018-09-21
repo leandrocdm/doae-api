@@ -1,16 +1,5 @@
 package br.com.doae.ws.server.entity;
 
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Endereco.java
-public class Endereco {
-	
-	private int codigo;
-	private String longradouro;
-	private int numero;
-	private String complemento;
-	private String Bairro;
-	private long cep;
-	private String cidade;
-=======
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -51,7 +40,6 @@ public class Endereco {
 	private String cidade;
 	
 	@Column(name="ds_estado", nullable=false)
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Endereco.java
 	private String estado;
 	private float latitude;
 	private float longitude;

@@ -1,10 +1,5 @@
 package br.com.doae.ws.server.entity;
 
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/EstoquePremio.java
-public class EstoquePremio {
-	
-	private int codigo;
-=======
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,7 +26,6 @@ public class EstoquePremio {
 		
 	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="cd_premio")
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/EstoquePremio.java
 	private Premio premio;
 	private int quantidade;
 

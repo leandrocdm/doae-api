@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Usuario.java
-public class Usuario {
-	
-=======
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,16 +30,8 @@ public class Usuario {
 	@Id
 	@Column(name="cd_usuario")
 	@GeneratedValue(generator="usuario", strategy=GenerationType.SEQUENCE)
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Usuario.java
 	private int codigo;
 	private String apelido;
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Usuario.java
-	private String email;
-	private String senha;
-	private Date dataNascimento;
-	private String nomeUsuario;
-	private String sexo;
-=======
 	
 	@Column(name="nm_usuario")
 	private String nome;
@@ -62,7 +50,6 @@ public class Usuario {
 	private Sexo sexo;
 	
 	@Column(name="ds_cpf")
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Usuario.java
 	private long cpf;
 	private String rg;
 	private long telefone;
@@ -70,11 +57,8 @@ public class Usuario {
 	private double peso;
 	private int altura;
 	private int pontos;
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Usuario.java
-=======
 	
 	@OneToOne(mappedBy="usuario")
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Usuario.java
 	private Endereco endereco;
 		
 	@OneToMany(mappedBy="usuario", cascade = CascadeType.PERSIST)
@@ -87,27 +71,17 @@ public class Usuario {
 	@JoinTable(name="T_DOAE_DOACAO", joinColumns=@JoinColumn(name="cd_usuario"), inverseJoinColumns=@JoinColumn(name="cd_doacao"))
 	private List<Doacao> doacoes;
 	
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Usuario.java
-	public Usuario(String apelido, String email, String senha, Date dataNascimento, String nomeUsuario,
-			String sexo, long cpf, String rg, long telefone, byte foto, double peso, int altura, int pontos,
-			Endereco endereco) {
-=======
 	public Usuario() { super(); }
 
 	public Usuario(String apelido, String nome, String senha, String email, Date dataNascimento, Sexo sexo, long cpf,
 			String rg, long telefone, byte foto, double peso, int altura, int pontos, Endereco endereco,
 			List<Compra> compras, List<Movimentacao> movimentacoes, List<Doacao> doacoes) {
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Usuario.java
 		super();
 		this.apelido = apelido;
 		this.nome = nome;
 		this.senha = senha;
 		this.email = email;
 		this.dataNascimento = dataNascimento;
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Usuario.java
-		this.nomeUsuario = nomeUsuario;
-=======
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Usuario.java
 		this.sexo = sexo;
 		this.cpf = cpf;
 		this.rg = rg;
@@ -169,25 +143,12 @@ public class Usuario {
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Usuario.java
-	public String getNomeUsuario() {
-		return nomeUsuario;
-	}
-	public void setNomeUsuario(String nomeUsuario) {
-		this.nomeUsuario = nomeUsuario;
-	}
-	public String getSexo() {
-		return sexo;
-	}
-	public void setSexo(String sexo) {
-=======
 
 	public Sexo getSexo() {
 		return sexo;
 	}
 
 	public void setSexo(Sexo sexo) {
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Usuario.java
 		this.sexo = sexo;
 	}
 
@@ -254,10 +215,6 @@ public class Usuario {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Usuario.java
-	
-
-=======
 
 	public List<Compra> getCompras() {
 		return compras;
@@ -282,5 +239,4 @@ public class Usuario {
 	public void setDoacoes(List<Doacao> doacoes) {
 		this.doacoes = doacoes;
 	}
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Usuario.java
 }

@@ -1,11 +1,5 @@
 package br.com.doae.ws.server.entity;
 
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Premio.java
-public class Premio {
-
-	private int codigo;
-	private String nome;
-=======
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,15 +26,11 @@ public class Premio {
 	private String nome;
 	
 	@Column(name="ds_descricao", nullable=false)
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Premio.java
 	private String descricao;
 	private int pontos;
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Premio.java
-=======
 	
 	@ManyToOne
 	@JoinColumn
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Premio.java
 	private Parceiro parceiro;
 	
 	@OneToOne(cascade=CascadeType.PERSIST)

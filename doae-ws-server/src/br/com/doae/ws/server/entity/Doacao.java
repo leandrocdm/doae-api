@@ -3,16 +3,6 @@ package br.com.doae.ws.server.entity;
 import java.util.Date;
 import java.util.List;
 
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Doacao.java
-public class Doacao {
-
-	private int codigo;
-	private Hemocentro hemocentro;
-	private Usuario usuario;
-	private Date dataDoacao;
-
-	public Doacao() {super();}
-=======
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,7 +35,6 @@ public class Doacao {
 	private List<Usuario> usuarios;
 	
 	public Doacao() { super(); }
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Doacao.java
 
 	public Doacao(Date data, List<Hemocentro> hemocentros, List<Usuario> usuarios) {
 		super();

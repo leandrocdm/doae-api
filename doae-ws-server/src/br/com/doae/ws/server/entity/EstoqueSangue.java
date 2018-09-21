@@ -1,9 +1,5 @@
 package br.com.doae.ws.server.entity;
 
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/EstoqueSangue.java
-public class EstoqueSangue {
-	
-=======
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -28,16 +24,12 @@ public class EstoqueSangue {
 	@Id
 	@Column(name="cd_est_sangue")
 	@GeneratedValue(generator="estoqueSangue", strategy=GenerationType.SEQUENCE)
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/EstoqueSangue.java
 	private int codigo;
 	private int qtdMaxima;
 	private int qtdAtual;
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/EstoqueSangue.java
-=======
 	
 	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="cd_sangue")
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/EstoqueSangue.java
 	private Sangue sangue;
 	
 	@ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)

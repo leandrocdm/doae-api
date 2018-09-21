@@ -1,9 +1,5 @@
 package br.com.doae.ws.server.entity;
 
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Sangue.java
-public class Sangue {
-
-=======
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
@@ -22,7 +18,6 @@ public class Sangue {
 	@Id
 	@Column(name="cd_sangue")
 	@GeneratedValue(generator="sangue", strategy=GenerationType.SEQUENCE)
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Sangue.java
 	private int codigo;
 	private TipoSangue tipoSangue;
 	private FatorRH fator;

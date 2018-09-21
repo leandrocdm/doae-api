@@ -1,10 +1,5 @@
 package br.com.doae.ws.server.entity;
 
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Hemocentro.java
-public class Hemocentro {
-
-	private int codigo;
-=======
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -32,15 +27,11 @@ public class Hemocentro {
 	private int codigo;
 	
 	@Column(name="nm_hemocentro", nullable=false)
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Hemocentro.java
 	private String nome;
 	private long telefone;
 	private String email;
-<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Hemocentro.java
-=======
 	
 	@OneToOne(mappedBy="parceiro")
->>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Hemocentro.java
 	private Endereco endereco;
 
 	@ManyToMany(mappedBy="hemocentros")
