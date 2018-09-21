@@ -1,13 +1,13 @@
-package br.com.doae.ws.server.jpa.dao.impl;
+package br.com.doae.ws.server.dao.impl;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import br.com.doae.ws.server.dao.GenericDAO;
 import br.com.doae.ws.server.exception.CommitException;
 import br.com.doae.ws.server.exception.KeyNotFoundException;
-import br.com.doae.ws.server.jpa.dao.GenericDAO;
 
 
 public class GenericDAOImpl<T,K> 
@@ -68,6 +68,3 @@ public class GenericDAOImpl<T,K>
 	}
 	
 }
-
-
-

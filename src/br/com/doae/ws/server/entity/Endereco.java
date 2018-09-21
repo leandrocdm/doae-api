@@ -41,7 +41,11 @@ public class Endereco {
 	
 	@Column(name="ds_estado", nullable=false)
 	private String estado;
+	
+	@Column(name="vl_latitude")
 	private float latitude;
+	
+	@Column(name="vl_longitude")
 	private float longitude;
 	
 	@OneToOne(cascade=CascadeType.PERSIST)
@@ -64,7 +68,7 @@ public class Endereco {
 		this.longradouro = longradouro;
 		this.numero = numero;
 		this.complemento = complemento;
-		Bairro = bairro;
+		this.bairro = bairro;
 		this.cep = cep;
 		this.cidade = cidade;
 		this.estado = estado;
@@ -106,11 +110,11 @@ public class Endereco {
 	}
 
 	public String getBairro() {
-		return Bairro;
+		return bairro;
 	}
 
 	public void setBairro(String bairro) {
-		Bairro = bairro;
+		this.bairro = bairro;
 	}
 
 	public long getCep() {

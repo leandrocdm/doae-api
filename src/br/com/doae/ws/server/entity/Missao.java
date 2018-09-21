@@ -1,5 +1,10 @@
 package br.com.doae.ws.server.entity;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Missao {
 	
 	@Id
@@ -13,6 +18,8 @@ public class Missao {
 	
 	@Column(name="ds_descricao", nullable=false)
 	private String descricao;
+	
+	
 	private int pontos;
 	
 	public Missao() { super(); }

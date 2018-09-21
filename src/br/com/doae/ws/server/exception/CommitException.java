@@ -1,4 +1,4 @@
-package br.com.doae.ws.server.jpa.exception;
+package br.com.doae.ws.server.exception;
 
 @SuppressWarnings("serial")
 public class CommitException extends Exception {

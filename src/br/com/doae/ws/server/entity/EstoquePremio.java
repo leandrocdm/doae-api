@@ -27,7 +27,6 @@ public class EstoquePremio {
 	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="cd_premio")
 	private Premio premio;
-	private int quantidade;
 
 	public EstoquePremio() { super(); }
 

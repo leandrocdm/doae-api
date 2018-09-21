@@ -1,4 +1,4 @@
-package br.com.doae.ws.server.jpa.dao;
+package br.com.doae.ws.server.dao;
 
 import java.util.List;
 
