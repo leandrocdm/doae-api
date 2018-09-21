@@ -1,10 +1,16 @@
 package br.com.doae.ws.server.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="T_DOAE_MISSAO")
+@SequenceGenerator(name="missao", sequenceName="SQ_DOAE_MISSAO", allocationSize=1)
 public class Missao {
 	
 	@Id
@@ -14,12 +20,14 @@ public class Missao {
 	
 	@Column(name="nm_missao", nullable=false)
 	private String nome;
+	
+	@Column(name="tp_missao", nullable=false)
 	private TipoMissao tipoMissao;
 	
 	@Column(name="ds_descricao", nullable=false)
 	private String descricao;
 	
-	
+	@Column(name="vl_pontos", nullable=false)
 	private int pontos;
 	
 	public Missao() { super(); }
