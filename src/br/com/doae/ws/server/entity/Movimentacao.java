@@ -2,32 +2,11 @@ package br.com.doae.ws.server.entity;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="T_DOAE_MOVIMENTACAO")
-@SequenceGenerator(name="movimentacao", sequenceName="SQ_DOAE_MOVIMENTACAO", allocationSize=1)
 public class Movimentacao {
 	
-	@Id
-	@Column(name="cd_codigo")
-	@GeneratedValue(generator="movimentacao", strategy=GenerationType.SEQUENCE)
 	private int codigo;
-	
-	@Enumerated
-	@Column(name="tx_categoria", nullable=false)
-	private CategoriaMovimentacao categoria;
-	
-	@Enumerated
-	@Column(name="tx_tipo", nullable=false)
-	private TipoMovimentacao tipo;
+	private CategoriaMovimentacao catMovimentacao;
+	private TipoMovimentacao tipoMovimentacao;
 	private int valor;
 	private Date data;
 	private int pontuacaoAnterior;
@@ -35,11 +14,11 @@ public class Movimentacao {
 	
 	public Movimentacao() {super();}
 
-	public Movimentacao(CategoriaMovimentacao categoria, TipoMovimentacao tipo, int valor, Date data,
+	public Movimentacao(CategoriaMovimentacao catMovimentacao, TipoMovimentacao tipoMovimentacao, int valor, Date data,
 			int pontuacaoAnterior, Usuario usuario) {
 		super();
-		this.categoria = categoria;
-		this.tipo = tipo;
+		this.catMovimentacao = catMovimentacao;
+		this.tipoMovimentacao = tipoMovimentacao;
 		this.valor = valor;
 		this.data = data;
 		this.pontuacaoAnterior = pontuacaoAnterior;
@@ -54,20 +33,20 @@ public class Movimentacao {
 		this.codigo = codigo;
 	}
 
-	public CategoriaMovimentacao getCategoria() {
-		return categoria;
+	public CategoriaMovimentacao getCatMovimentacao() {
+		return catMovimentacao;
 	}
 
-	public void setCategoria(CategoriaMovimentacao categoria) {
-		this.categoria = categoria;
+	public void setCatMovimentacao(CategoriaMovimentacao catMovimentacao) {
+		this.catMovimentacao = catMovimentacao;
 	}
 
-	public TipoMovimentacao getTipo() {
-		return tipo;
+	public TipoMovimentacao getTipoMovimentacao() {
+		return tipoMovimentacao;
 	}
 
-	public void setTipo(TipoMovimentacao tipo) {
-		this.tipo = tipo;
+	public void setTipoMovimentacao(TipoMovimentacao tipoMovimentacao) {
+		this.tipoMovimentacao = tipoMovimentacao;
 	}
 
 	public int getValor() {

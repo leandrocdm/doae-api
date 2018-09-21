@@ -6,6 +6,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -15,24 +16,22 @@ import javax.persistence.Table;
 public class Sangue {
 	
 	@Id
-	@Column(name="cd_codigo")
+	@Column(name="cd_sangue")
 	@GeneratedValue(generator="sangue", strategy=GenerationType.SEQUENCE)
 	private int codigo;
-	
-	@Enumerated
-	@Column(name="ds_tipo", nullable=false)
 	private TipoSangue tipoSangue;
-	
-	@Enumerated
-	@Column(name="ds_fator_rh", nullable=false)
 	private FatorRH fator;
+	
+	@OneToOne(mappedBy="sangue")
+	private EstoqueSangue estoque;
+	
+	public Sangue() { super(); }
 
-	public Sangue() {super();}
-
-	public Sangue(TipoSangue tipoSangue, FatorRH fator) {
+	public Sangue(TipoSangue tipoSangue, FatorRH fator, EstoqueSangue estoque) {
 		super();
 		this.tipoSangue = tipoSangue;
 		this.fator = fator;
+		this.estoque = estoque;
 	}
 
 	public int getCodigo() {
@@ -57,5 +56,13 @@ public class Sangue {
 
 	public void setFator(FatorRH fator) {
 		this.fator = fator;
+	}
+
+	public EstoqueSangue getEstoque() {
+		return estoque;
+	}
+
+	public void setEstoque(EstoqueSangue estoque) {
+		this.estoque = estoque;
 	}
 }

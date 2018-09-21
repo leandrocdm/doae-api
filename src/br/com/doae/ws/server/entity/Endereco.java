@@ -1,10 +1,13 @@
 package br.com.doae.ws.server.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -14,112 +17,163 @@ import javax.persistence.Table;
 public class Endereco {
 	
 	@Id
+	@Column(name="cd_endereco")
 	@GeneratedValue(generator="endereco", strategy=GenerationType.SEQUENCE)
 	private int codigo;
 	
-	@Column(name="tx_longradouro", nullable=false)
+	@Column(name="ds_longradouro", nullable=false)
 	private String longradouro;
 	
-	@Column(name="vl_numero", nullable=false)
+	@Column(name="nr_numero", nullable=false)
 	private int numero;
 	
-	@Column(name="tx_complemento")
+	@Column(name="ds_complemento")
 	private String complemento;
 	
-	@Column(name="tx_bairro", nullable=false)
+	@Column(name="ds_bairro", nullable=false)
 	private String bairro;
 	
-	@Column(name="cd_cep", nullable=false)
+	@Column(name="ds_cep", nullable=false)
 	private long cep;
 	
-	@Column(name="tx_cidade", nullable=false)
+	@Column(name="ds_cidade", nullable=false)
 	private String cidade;
 	
-	@Column(name="tx_estado", nullable=false)
+	@Column(name="ds_estado", nullable=false)
 	private String estado;
-	
-	@Column(name="cd_latitude")
 	private float latitude;
-	
-	@Column(name="cd_longitude")
 	private float longitude;
 	
-	public Endereco() {super();}
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="cd_usuario")
+	private Usuario usuario;
 	
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="cd_parceiro")
+	private Parceiro parceiro;
 	
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="cd_hemocentro")
+	private Hemocentro hemocentro;
+	
+	public Endereco() { super(); }
+
 	public Endereco(String longradouro, int numero, String complemento, String bairro, long cep, String cidade,
 			String estado, float latitude, float longitude) {
 		super();
 		this.longradouro = longradouro;
 		this.numero = numero;
 		this.complemento = complemento;
-		this.bairro = bairro;
+		Bairro = bairro;
 		this.cep = cep;
 		this.cidade = cidade;
 		this.estado = estado;
 		this.latitude = latitude;
 		this.longitude = longitude;
 	}
+
 
 	public int getCodigo() {
 		return codigo;
 	}
+
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
+
 	public String getLongradouro() {
 		return longradouro;
 	}
+
 	public void setLongradouro(String longradouro) {
 		this.longradouro = longradouro;
 	}
+
 	public int getNumero() {
 		return numero;
 	}
+
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
+
 	public String getComplemento() {
 		return complemento;
 	}
+
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
+
 	public String getBairro() {
-		return bairro;
+		return Bairro;
 	}
+
 	public void setBairro(String bairro) {
-		this.bairro = bairro;
+		Bairro = bairro;
 	}
+
 	public long getCep() {
 		return cep;
 	}
+
 	public void setCep(long cep) {
 		this.cep = cep;
 	}
+
 	public String getCidade() {
 		return cidade;
 	}
+
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
+
 	public String getEstado() {
 		return estado;
 	}
+
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
 	public float getLatitude() {
 		return latitude;
 	}
+
 	public void setLatitude(float latitude) {
 		this.latitude = latitude;
 	}
+
 	public float getLongitude() {
 		return longitude;
 	}
+
 	public void setLongitude(float longitude) {
 		this.longitude = longitude;
 	}
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Parceiro getParceiro() {
+		return parceiro;
+	}
+
+	public void setParceiro(Parceiro parceiro) {
+		this.parceiro = parceiro;
+	}
+
+	public Hemocentro getHemocentro() {
+		return hemocentro;
+	}
+
+	public void setHemocentro(Hemocentro hemocentro) {
+		this.hemocentro = hemocentro;
+	}
 }

@@ -2,8 +2,8 @@ package br.com.doae.ws.server.jpa.dao;
 
 import java.util.List;
 
-import br.com.doae.ws.server.jpa.exception.CommitException;
-import br.com.doae.ws.server.jpa.exception.KeyNotFoundException;
+import br.com.doae.ws.server.exception.CommitException;
+import br.com.doae.ws.server.exception.KeyNotFoundException;
 
 
 public interface GenericDAO<T,K> {

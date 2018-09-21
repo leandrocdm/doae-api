@@ -1,10 +1,18 @@
 package br.com.doae.ws.server.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -14,27 +22,28 @@ import javax.persistence.Table;
 public class EstoqueSangue {
 	
 	@Id
-	@Column(name="cd_codigo")
+	@Column(name="cd_est_sangue")
 	@GeneratedValue(generator="estoqueSangue", strategy=GenerationType.SEQUENCE)
 	private int codigo;
-	
-	@Column(name="vl_quantidade_maxima", nullable=false)
 	private int qtdMaxima;
-	
-	@Column(name="vl_quantidade_atual", nullable=false)
 	private int qtdAtual;
 	
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="cd_sangue")
 	private Sangue sangue;
-	private Hemocentro hemocentro;
+	
+	@ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
+	@JoinTable(name="T_DOAE_HEMOCENTRO", joinColumns=@JoinColumn(name="cd_est_sangue"), inverseJoinColumns=@JoinColumn(name="cd_hemocentro"))
+	private List<Hemocentro> hemocentros;
+	
+	public EstoqueSangue() { super(); }
 
-	public EstoqueSangue() {super();}
-
-	public EstoqueSangue(int qtdMaxima, int qtdAtual, Sangue sangue, Hemocentro hemocentro) {
+	public EstoqueSangue(int qtdMaxima, int qtdAtual, Sangue sangue, List<Hemocentro> hemocentros) {
 		super();
 		this.qtdMaxima = qtdMaxima;
 		this.qtdAtual = qtdAtual;
 		this.sangue = sangue;
-		this.hemocentro = hemocentro;
+		this.hemocentros = hemocentros;
 	}
 
 	public int getCodigo() {
@@ -69,11 +78,11 @@ public class EstoqueSangue {
 		this.sangue = sangue;
 	}
 
-	public Hemocentro getHemocentro() {
-		return hemocentro;
+	public List<Hemocentro> getHemocentros() {
+		return hemocentros;
 	}
 
-	public void setHemocentro(Hemocentro hemocentro) {
-		this.hemocentro = hemocentro;
+	public void setHemocentros(List<Hemocentro> hemocentros) {
+		this.hemocentros = hemocentros;
 	}
 }

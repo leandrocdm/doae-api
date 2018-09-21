@@ -1,10 +1,13 @@
 package br.com.doae.ws.server.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -14,19 +17,24 @@ import javax.persistence.Table;
 public class EstoquePremio {
 	
 	@Id
+	@Column(name="cd_est_premio")
 	@GeneratedValue(generator="estoquePremio", strategy=GenerationType.SEQUENCE)
 	private int codigo;
 	
 	@Column(name="vl_quantidade", nullable=false)
 	private int quantidade;
+		
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="cd_premio")
 	private Premio premio;
+	private int quantidade;
 
-	public EstoquePremio() {super();}
+	public EstoquePremio() { super(); }
 
-	public EstoquePremio(Premio premio, int quantidade) {
+	public EstoquePremio(int quantidade, Premio premio) {
 		super();
-		this.premio = premio;
 		this.quantidade = quantidade;
+		this.premio = premio;
 	}
 
 	public int getCodigo() {
@@ -37,19 +45,19 @@ public class EstoquePremio {
 		this.codigo = codigo;
 	}
 
-	public Premio getPremio() {
-		return premio;
-	}
-
-	public void setPremio(Premio premio) {
-		this.premio = premio;
-	}
-
 	public int getQuantidade() {
 		return quantidade;
 	}
 
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
+	}
+
+	public Premio getPremio() {
+		return premio;
+	}
+
+	public void setPremio(Premio premio) {
+		this.premio = premio;
 	}
 }

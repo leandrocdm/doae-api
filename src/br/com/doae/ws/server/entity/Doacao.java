@@ -1,14 +1,18 @@
 package br.com.doae.ws.server.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="T_DOAE_DOACAO")
@@ -17,20 +21,26 @@ public class Doacao {
 
 	@Id
 	@GeneratedValue(generator="doacao", strategy=GenerationType.SEQUENCE)
-	@Column(name="cd_codigo")
+	@Column(name="cd_doacao")
 	private int codigo;
 	
-	private Hemocentro hemocentro;
-	private Usuario usuario;
-	private Date dataDoacao;
+	@Temporal(TemporalType.DATE)
+	@Column(name="dt_doacao", nullable=false)
+	private Date data;
+	
+	@ManyToMany(mappedBy="doacoes")
+	private List<Hemocentro> hemocentros;
+	
+	@ManyToMany(mappedBy="doacoes")
+	private List<Usuario> usuarios;
+	
+	public Doacao() { super(); }
 
-	public Doacao() {super();}
-
-	public Doacao(Hemocentro hemocentro, Usuario usuario, Date dataDoacao) {
+	public Doacao(Date data, List<Hemocentro> hemocentros, List<Usuario> usuarios) {
 		super();
-		this.hemocentro = hemocentro;
-		this.usuario = usuario;
-		this.dataDoacao = dataDoacao;
+		this.data = data;
+		this.hemocentros = hemocentros;
+		this.usuarios = usuarios;
 	}
 
 	public int getCodigo() {
@@ -41,28 +51,27 @@ public class Doacao {
 		this.codigo = codigo;
 	}
 
-	public Hemocentro getHemocentro() {
-		return hemocentro;
+	public Date getData() {
+		return data;
 	}
 
-	public void setHemocentro(Hemocentro hemocentro) {
-		this.hemocentro = hemocentro;
+	public void setData(Date data) {
+		this.data = data;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public List<Hemocentro> getHemocentros() {
+		return hemocentros;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setHemocentros(List<Hemocentro> hemocentros) {
+		this.hemocentros = hemocentros;
 	}
 
-	public Date getDataDoacao() {
-		return dataDoacao;
+	public List<Usuario> getUsuarios() {
+		return usuarios;
 	}
 
-	public void setDataDoacao(Date dataDoacao) {
-		this.dataDoacao = dataDoacao;
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
 	}
-
 }

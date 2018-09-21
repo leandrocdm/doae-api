@@ -8,6 +8,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -17,24 +20,21 @@ import javax.persistence.Table;
 public class Compra {
 	
 	@Id
-	@Column(name="cd_codigo")
+	@Column(name="cd_compra")
 	@GeneratedValue(generator="compra", strategy=GenerationType.SEQUENCE)
 	private int codigo;
-	
-	@Column(name="nr_valor", nullable=false)
 	private int valor;
-	
-	@Column(name="dt_data_compra")
 	private Date dataCompra;
-	
-	@Enumerated
-	@Column(name="ds_status", nullable=false)
 	private StatusCompra status;
 	
+	@ManyToOne
+	@JoinColumn
 	private Usuario usuario;
+	
+	@OneToOne(mappedBy="compra")
 	private Premio premio;
 	
-	public Compra() {super();}
+	public Compra() { super(); }
 
 	public Compra(int valor, Date dataCompra, StatusCompra status, Usuario usuario, Premio premio) {
 		super();
