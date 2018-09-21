@@ -1,20 +1,45 @@
 package br.com.doae.ws.server.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="T_DOAE_PARCEIRO")
+@SequenceGenerator(name="parceiro", sequenceName="SQ_DOAE_PARCEIRO", allocationSize=1)
 public class Parceiro {
 
+	@Id
+	@Column(name="cd_parceiro")
+	@GeneratedValue(generator="parceiro", strategy=GenerationType.SEQUENCE)
 	private int codigo;
+	
+	@Column(name="nm_parceiro", nullable=false)
 	private String nome;
-	private long numero;
+	
+	@Column(name="nr_telefone", nullable=false)
+	private long telefone;
+	
+	@Column(name="ds_email", nullable=false)
 	private String email;
+	
+	@Column(name="st_ativo", nullable=false)
 	private boolean ativo;
+	
+	@OneToOne(mappedBy="parceiro")
 	private Endereco endereco;
 
 	public Parceiro() {super();}
 
-	public Parceiro(String nome, long numero, String email, boolean ativo, Endereco endereco) {
+	public Parceiro(String nome, long telefone, String email, boolean ativo, Endereco endereco) {
 		super();
 		this.nome = nome;
-		this.numero = numero;
+		this.telefone = telefone;
 		this.email = email;
 		this.ativo = ativo;
 		this.endereco = endereco;
@@ -36,12 +61,12 @@ public class Parceiro {
 		this.nome = nome;
 	}
 
-	public long getNumero() {
-		return numero;
+	public long getTelefone() {
+		return telefone;
 	}
 
-	public void setNumero(long numero) {
-		this.numero = numero;
+	public void setTelefone(long numero) {
+		this.telefone = numero;
 	}
 
 	public String getEmail() {
@@ -67,5 +92,4 @@ public class Parceiro {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-
 }

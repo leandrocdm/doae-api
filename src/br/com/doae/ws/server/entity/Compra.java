@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="T_DOAE_COMPRA")
@@ -23,8 +25,16 @@ public class Compra {
 	@Column(name="cd_compra")
 	@GeneratedValue(generator="compra", strategy=GenerationType.SEQUENCE)
 	private int codigo;
+	
+	@Column(name="vl_compra", nullable=false)
 	private int valor;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name="dt_compra", nullable=false)
 	private Date dataCompra;
+	
+	@Enumerated
+	@Column(name="st_compra")
 	private StatusCompra status;
 	
 	@ManyToOne

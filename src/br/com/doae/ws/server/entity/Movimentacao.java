@@ -2,14 +2,48 @@ package br.com.doae.ws.server.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="T_DOAE_MOVIMENTACAO")
+@SequenceGenerator(name="movimentacao", sequenceName="SQ_DOAE_MOVIMENTACAO", allocationSize=1)
 public class Movimentacao {
 	
+	@Id
+	@Column(name="cd_movimentacao")
+	@GeneratedValue(generator="movimentacao", strategy=GenerationType.SEQUENCE)
 	private int codigo;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="ds_categoria", nullable=false)
 	private CategoriaMovimentacao catMovimentacao;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="ds_tipo", nullable=false)
 	private TipoMovimentacao tipoMovimentacao;
+	
+	@Column(name="vl_movimentacao", nullable=false)
 	private int valor;
+	
+	@Column(name="dt_movimentacao", nullable=false)
 	private Date data;
+	
+	@Column(name="vl_pontuacao_anterior", nullable=false)
 	private int pontuacaoAnterior;
+	
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="cd_usuario")
 	private Usuario usuario;
 	
 	public Movimentacao() {super();}

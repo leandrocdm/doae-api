@@ -31,9 +31,11 @@ public class Usuario {
 	@Column(name="cd_usuario")
 	@GeneratedValue(generator="usuario", strategy=GenerationType.SEQUENCE)
 	private int codigo;
+	
+	@Column(name="nm_apelino", nullable=false)
 	private String apelido;
 	
-	@Column(name="nm_usuario")
+	@Column(name="nm_usuario", nullable=false)
 	private String nome;
 	
 	@Column(name="ds_senha", nullable=false)
@@ -51,11 +53,24 @@ public class Usuario {
 	
 	@Column(name="ds_cpf")
 	private long cpf;
+	
+	@Column(name="ds_rg")
 	private String rg;
+	
+	@Column(name="nr_telefone")
 	private long telefone;
+	
+	@Lob
+	@Column(name="fl_foto")
 	private byte foto;
+	
+	@Column(name="vl_peso")
 	private double peso;
+	
+	@Column(name="vl_altura")
 	private int altura;
+	
+	@Column(name="vl_pontos", nullable=false)
 	private int pontos;
 	
 	@OneToOne(mappedBy="usuario")
