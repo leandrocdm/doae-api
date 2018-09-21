@@ -2,16 +2,47 @@ package br.com.doae.ws.server.entity;
 
 import java.util.Date;
 
+<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Compra.java
 public class Compra {
 	
+=======
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="T_DOAE_COMPRA")
+@SequenceGenerator(name="compra", sequenceName="SQ_DOAE_COMPRA", allocationSize=1)
+public class Compra {
+	
+	@Id
+	@Column(name="cd_compra")
+	@GeneratedValue(generator="compra", strategy=GenerationType.SEQUENCE)
+>>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Compra.java
 	private int codigo;
 	private int valor;
 	private Date dataCompra;
 	private StatusCompra status;
+<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Compra.java
+=======
+	
+	@ManyToOne
+	@JoinColumn
+>>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Compra.java
 	private Usuario usuario;
+	
+	@OneToOne(mappedBy="compra")
 	private Premio premio;
 	
-	public Compra() {super();}
+	public Compra() { super(); }
 
 	public Compra(int valor, Date dataCompra, StatusCompra status, Usuario usuario, Premio premio) {
 		super();

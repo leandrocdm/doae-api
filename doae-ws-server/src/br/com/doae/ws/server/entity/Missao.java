@@ -2,13 +2,27 @@ package br.com.doae.ws.server.entity;
 
 public class Missao {
 	
+<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Missao.java
 	private int codigo;
+=======
+	@Id
+	@Column(name="cd_missao")
+	@GeneratedValue(generator="missao", strategy=GenerationType.SEQUENCE)
+	private int codigo;
+	
+	@Column(name="nm_missao", nullable=false)
+>>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Missao.java
 	private String nome;
 	private TipoMissao tipoMissao;
+<<<<<<< Updated upstream:doae-ws-server/src/br/com/doae/ws/server/entity/Missao.java
+=======
+	
+	@Column(name="ds_descricao", nullable=false)
+>>>>>>> Stashed changes:src/br/com/doae/ws/server/entity/Missao.java
 	private String descricao;
 	private int pontos;
 	
-	public Missao() {super();}
+	public Missao() { super(); }
 
 	public Missao(String nome, TipoMissao tipoMissao, String descricao, int pontos) {
 		super();
@@ -57,6 +71,4 @@ public class Missao {
 	public void setPontos(int pontos) {
 		this.pontos = pontos;
 	}
-	
-
 }

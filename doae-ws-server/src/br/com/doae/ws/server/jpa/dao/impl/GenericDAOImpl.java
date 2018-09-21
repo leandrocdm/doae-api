@@ -5,9 +5,9 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import br.com.doae.ws.server.exception.CommitException;
+import br.com.doae.ws.server.exception.KeyNotFoundException;
 import br.com.doae.ws.server.jpa.dao.GenericDAO;
-import br.com.doae.ws.server.jpa.exception.CommitException;
-import br.com.doae.ws.server.jpa.exception.KeyNotFoundException;
 
 
 public class GenericDAOImpl<T,K> 
