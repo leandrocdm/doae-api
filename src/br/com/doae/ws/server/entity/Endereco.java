@@ -21,8 +21,8 @@ public class Endereco {
 	@GeneratedValue(generator="endereco", strategy=GenerationType.SEQUENCE)
 	private int codigo;
 	
-	@Column(name="ds_longradouro", nullable=false)
-	private String longradouro;
+	@Column(name="ds_logradouro", nullable=false)
+	private String logradouro;
 	
 	@Column(name="nr_numero", nullable=false)
 	private int numero;
@@ -62,10 +62,10 @@ public class Endereco {
 	
 	public Endereco() { super(); }
 
-	public Endereco(String longradouro, int numero, String complemento, String bairro, long cep, String cidade,
+	public Endereco(String logradouro, int numero, String complemento, String bairro, long cep, String cidade,
 			String estado, float latitude, float longitude) {
 		super();
-		this.longradouro = longradouro;
+		this.logradouro = logradouro;
 		this.numero = numero;
 		this.complemento = complemento;
 		this.bairro = bairro;
@@ -76,7 +76,6 @@ public class Endereco {
 		this.longitude = longitude;
 	}
 
-
 	public int getCodigo() {
 		return codigo;
 	}
@@ -85,12 +84,12 @@ public class Endereco {
 		this.codigo = codigo;
 	}
 
-	public String getLongradouro() {
-		return longradouro;
+	public String getLogradouro() {
+		return logradouro;
 	}
 
-	public void setLongradouro(String longradouro) {
-		this.longradouro = longradouro;
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
 	}
 
 	public int getNumero() {
