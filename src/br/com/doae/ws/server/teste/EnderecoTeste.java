@@ -24,6 +24,7 @@ public class EnderecoTeste {
 		
 		EntityManagerFactory fabrica = 
 				EntityManagerFactorySingleton.getInstance();
+		
 			EntityManager em = fabrica.createEntityManager();
 
 			EnderecoDAO dao = 
