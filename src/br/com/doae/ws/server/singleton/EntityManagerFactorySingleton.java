@@ -12,7 +12,7 @@ public class EntityManagerFactorySingleton {
 	public static EntityManagerFactory getInstance() {
 		if (fabrica == null) {
 			fabrica = Persistence
-				.createEntityManagerFactory("test");
+				.createEntityManagerFactory("banco");
 		}
 		return fabrica;
 	}
