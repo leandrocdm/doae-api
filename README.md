@@ -1,1 +1,3 @@
-# DOAE - API
+# Doae-api
+
+## API RESTful do app "Doae"
