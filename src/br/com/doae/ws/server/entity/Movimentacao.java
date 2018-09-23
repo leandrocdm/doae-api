@@ -25,11 +25,11 @@ public class Movimentacao {
 	private int codigo;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name="ds_categoria", nullable=false)
+	@Column(name="ds_categoria_mov", nullable=false)
 	private CategoriaMovimentacao catMovimentacao;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name="ds_tipo", nullable=false)
+	@Column(name="ds_tipo_mov", nullable=false)
 	private TipoMovimentacao tipoMovimentacao;
 	
 	@Column(name="vl_movimentacao", nullable=false)

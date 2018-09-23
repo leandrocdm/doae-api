@@ -21,7 +21,7 @@ public class EstoquePremio {
 	@GeneratedValue(generator="estoquePremio", strategy=GenerationType.SEQUENCE)
 	private int codigo;
 	
-	@Column(name="vl_quantidade", nullable=false)
+	@Column(name="qt_quantidade", nullable=false)
 	private int quantidade;
 		
 	@OneToOne(cascade=CascadeType.PERSIST)
