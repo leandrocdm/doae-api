@@ -32,7 +32,7 @@ public class Usuario {
 	@GeneratedValue(generator="usuario", strategy=GenerationType.SEQUENCE)
 	private int codigo;
 	
-	@Column(name="nm_apelino", nullable=false)
+	@Column(name="nm_apelido", nullable=false)
 	private String apelido;
 	
 	@Column(name="nm_usuario", nullable=false)
@@ -70,7 +70,7 @@ public class Usuario {
 	@Column(name="vl_altura")
 	private int altura;
 	
-	@Column(name="vl_pontos", nullable=false)
+	@Column(name="qt_pontos", nullable=false)
 	private int pontos;
 	
 	@OneToOne(mappedBy="usuario")
@@ -94,6 +94,29 @@ public class Usuario {
 		this.usuario = usuario;
 		this.senha = senha;
 		this.email = email;
+	}
+
+	public Usuario(String apelido, String usuario, String senha, String email, Date dataNascimento, Sexo sexo, long cpf,
+			String rg, long telefone, byte[] foto, double peso, int altura, int pontos, Endereco endereco,
+			List<Compra> compras, List<Movimentacao> movimentacoes, List<Doacao> doacoes) {
+		super();
+		this.apelido = apelido;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.email = email;
+		this.dataNascimento = dataNascimento;
+		this.sexo = sexo;
+		this.cpf = cpf;
+		this.rg = rg;
+		this.telefone = telefone;
+		this.foto = foto;
+		this.peso = peso;
+		this.altura = altura;
+		this.pontos = pontos;
+		this.endereco = endereco;
+		this.compras = compras;
+		this.movimentacoes = movimentacoes;
+		this.doacoes = doacoes;
 	}
 
 	public int getCodigo() {

@@ -24,10 +24,10 @@ public class Missao {
 	@Column(name="tp_missao", nullable=false)
 	private TipoMissao tipoMissao;
 	
-	@Column(name="ds_descricao", nullable=false)
+	@Column(name="ds_missao", nullable=false)
 	private String descricao;
 	
-	@Column(name="vl_pontos", nullable=false)
+	@Column(name="qt_pontos", nullable=false)
 	private int pontos;
 	
 	public Missao() { super(); }

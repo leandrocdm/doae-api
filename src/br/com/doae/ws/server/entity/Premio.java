@@ -27,10 +27,12 @@ public class Premio {
 	
 	@Column(name="ds_descricao", nullable=false)
 	private String descricao;
+	
+	@Column(name="vl_pontos", nullable=false)
 	private int pontos;
 	
 	@ManyToOne
-	@JoinColumn
+	@JoinColumn(name="cd_parceiro")
 	private Parceiro parceiro;
 	
 	@OneToOne(cascade=CascadeType.PERSIST)

@@ -31,7 +31,7 @@ public class Compra {
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="dt_compra", nullable=false)
-	private Date dataCompra;
+	private Date data;
 	
 	@Enumerated
 	@Column(name="st_compra")
@@ -46,10 +46,10 @@ public class Compra {
 	
 	public Compra() { super(); }
 
-	public Compra(int valor, Date dataCompra, StatusCompra status, Usuario usuario, Premio premio) {
+	public Compra(int valor, Date data, StatusCompra status, Usuario usuario, Premio premio) {
 		super();
 		this.valor = valor;
-		this.dataCompra = dataCompra;
+		this.data = data;
 		this.status = status;
 		this.usuario = usuario;
 		this.premio = premio;
@@ -71,12 +71,12 @@ public class Compra {
 		this.valor = valor;
 	}
 
-	public Date getDataCompra() {
-		return dataCompra;
+	public Date getdata() {
+		return data;
 	}
 
-	public void setDataCompra(Date dataCompra) {
-		this.dataCompra = dataCompra;
+	public void setdata(Date data) {
+		this.data = data;
 	}
 
 	public StatusCompra getStatus() {

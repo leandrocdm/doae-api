@@ -2,10 +2,11 @@ package br.com.doae.ws.server.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -18,19 +19,21 @@ public class Sangue {
 	@Column(name="cd_sangue")
 	@GeneratedValue(generator="sangue", strategy=GenerationType.SEQUENCE)
 	private int codigo;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="ds_tipo_sangue", nullable=false)
 	private TipoSangue tipoSangue;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="ds_fator_rh", nullable=false)
 	private FatorRH fator;
-	
-	@OneToOne(mappedBy="sangue")
-	private EstoqueSangue estoque;
-	
+		
 	public Sangue() { super(); }
 
-	public Sangue(TipoSangue tipoSangue, FatorRH fator, EstoqueSangue estoque) {
+	public Sangue(TipoSangue tipoSangue, FatorRH fator) {
 		super();
 		this.tipoSangue = tipoSangue;
 		this.fator = fator;
-		this.estoque = estoque;
 	}
 
 	public int getCodigo() {
@@ -55,13 +58,5 @@ public class Sangue {
 
 	public void setFator(FatorRH fator) {
 		this.fator = fator;
-	}
-
-	public EstoqueSangue getEstoque() {
-		return estoque;
-	}
-
-	public void setEstoque(EstoqueSangue estoque) {
-		this.estoque = estoque;
 	}
 }

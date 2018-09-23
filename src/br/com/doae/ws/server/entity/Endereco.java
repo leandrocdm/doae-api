@@ -42,10 +42,10 @@ public class Endereco {
 	@Column(name="ds_estado", nullable=false)
 	private String estado;
 	
-	@Column(name="vl_latitude")
+	@Column(name="cd_latitude")
 	private float latitude;
 	
-	@Column(name="vl_longitude")
+	@Column(name="cd_longitude")
 	private float longitude;
 	
 	@OneToOne(cascade=CascadeType.PERSIST)
