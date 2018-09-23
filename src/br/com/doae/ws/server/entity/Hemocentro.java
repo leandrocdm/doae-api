@@ -35,21 +35,28 @@ public class Hemocentro {
 	@Column(name="ds_email", nullable=false)
 	private String email;
 	
-	@OneToOne(mappedBy="parceiro")
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="cd_endereco")
 	private Endereco endereco;
 
+	@ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
+	@JoinTable(name="T_DOAE_EST_SANGUE", joinColumns=@JoinColumn(name="cd_hemocentro"), inverseJoinColumns=@JoinColumn(name="cd_est_sangue"))
+	private List<EstoqueSangue> estoqueSangues;
+	
 	@ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
 	@JoinTable(name="T_DOAE_DOACAO", joinColumns=@JoinColumn(name="cd_hemocentro"), inverseJoinColumns=@JoinColumn(name="cd_doacao"))
 	private List<Doacao> doacoes;
 	
 	public Hemocentro() { super(); }
 
-	public Hemocentro(String nome, long telefone, String email, Endereco endereco, List<Doacao> doacoes) {
+	public Hemocentro(String nome, long telefone, String email, Endereco endereco, List<EstoqueSangue> estoqueSangues,
+			List<Doacao> doacoes) {
 		super();
 		this.nome = nome;
 		this.telefone = telefone;
 		this.email = email;
 		this.endereco = endereco;
+		this.estoqueSangues = estoqueSangues;
 		this.doacoes = doacoes;
 	}
 
@@ -91,6 +98,14 @@ public class Hemocentro {
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+
+	public List<EstoqueSangue> getEstoqueSangues() {
+		return estoqueSangues;
+	}
+
+	public void setEstoqueSangues(List<EstoqueSangue> estoqueSangues) {
+		this.estoqueSangues = estoqueSangues;
 	}
 
 	public List<Doacao> getDoacoes() {

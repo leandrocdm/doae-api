@@ -1,12 +1,10 @@
 package br.com.doae.ws.server.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -48,19 +46,29 @@ public class Endereco {
 	@Column(name="cd_longitude")
 	private float longitude;
 	
-	@OneToOne(cascade=CascadeType.PERSIST)
-	@JoinColumn(name="cd_usuario")
+	@OneToOne(mappedBy="endereco")
 	private Usuario usuario;
 	
-	@OneToOne(cascade=CascadeType.PERSIST)
-	@JoinColumn(name="cd_parceiro")
-	private Parceiro parceiro;
-	
-	@OneToOne(cascade=CascadeType.PERSIST)
-	@JoinColumn(name="cd_hemocentro")
+	@OneToOne(mappedBy="endereco")
 	private Hemocentro hemocentro;
 	
+	@OneToOne(mappedBy="endereco")
+	private Parceiro parceiro;
+		
 	public Endereco() { super(); }
+	
+	public Endereco(String logradouro, int numero, String complemento, String bairro, long cep, String cidade,
+			String estado) {
+		super();
+		this.logradouro = logradouro;
+		this.numero = numero;
+		this.complemento = complemento;
+		this.bairro = bairro;
+		this.cep = cep;
+		this.cidade = cidade;
+		this.estado = estado;
+	}
+
 
 	public Endereco(String logradouro, int numero, String complemento, String bairro, long cep, String cidade,
 			String estado, float latitude, float longitude) {

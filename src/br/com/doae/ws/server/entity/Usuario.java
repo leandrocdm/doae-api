@@ -72,8 +72,9 @@ public class Usuario {
 	
 	@Column(name="qt_pontos", nullable=false)
 	private int pontos;
-	
-	@OneToOne(mappedBy="usuario")
+		
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="cd_endereco")
 	private Endereco endereco;
 		
 	@OneToMany(mappedBy="usuario", cascade = CascadeType.PERSIST)

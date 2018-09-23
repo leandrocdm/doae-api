@@ -42,7 +42,7 @@ public class Movimentacao {
 	private int pontuacaoAnterior;
 	
 	@ManyToOne
-	@JoinColumn
+	@JoinColumn(name="cd_usuario")
 	private Usuario usuario;
 	
 	public Movimentacao() {super();}

@@ -2,6 +2,7 @@ package br.com.doae.ws.server.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
@@ -38,10 +39,11 @@ public class Compra {
 	private StatusCompra status;
 	
 	@ManyToOne
-	@JoinColumn
+	@JoinColumn(name="cd_usuario")
 	private Usuario usuario;
-	
-	@OneToOne(mappedBy="compra")
+		
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="cd_premio")
 	private Premio premio;
 	
 	public Compra() { super(); }

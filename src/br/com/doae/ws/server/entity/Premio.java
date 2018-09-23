@@ -1,6 +1,5 @@
 package br.com.doae.ws.server.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,8 +34,7 @@ public class Premio {
 	@JoinColumn(name="cd_parceiro")
 	private Parceiro parceiro;
 	
-	@OneToOne(cascade=CascadeType.PERSIST)
-	@JoinColumn(name="cd_compra")
+	@OneToOne(mappedBy="premio")
 	private Compra compra;
 		
 	@OneToOne(mappedBy="premio")
