@@ -15,10 +15,10 @@ public class MissaoTeste {
 	public static void main(String[] args) {
 		
 		Missao missao = new Missao(
-				"Cadastro Complet",
-				TipoMissao.PRIMEIRO_CADASTRO,
-				"Primeiro cadastro",
-				100);
+				"Doar Sangue pro fulano",
+				TipoMissao.CAMPANHA,
+				"teste",
+				233);
 		
 		EntityManagerFactory fabrica = 
 				EntityManagerFactorySingleton.getInstance();

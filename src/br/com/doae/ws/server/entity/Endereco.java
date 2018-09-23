@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="T_DOAE_ENDERECO")
-@SequenceGenerator(name="endereco", sequenceName="SQ_DOAE_ENDERECO")
+@SequenceGenerator(name="endereco", sequenceName="SQ_DOAE_ENDERECO", allocationSize=1)
 public class Endereco {
 	
 	@Id

@@ -2,7 +2,6 @@ package br.com.doae.ws.server.entity;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -42,8 +41,8 @@ public class Movimentacao {
 	@Column(name="vl_pontuacao_anterior", nullable=false)
 	private int pontuacaoAnterior;
 	
-	@OneToOne(cascade=CascadeType.PERSIST)
-	@JoinColumn(name="cd_usuario")
+	@ManyToOne
+	@JoinColumn
 	private Usuario usuario;
 	
 	public Movimentacao() {super();}
