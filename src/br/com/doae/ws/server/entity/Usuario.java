@@ -36,7 +36,7 @@ public class Usuario {
 	private String apelido;
 	
 	@Column(name="nm_usuario", nullable=false)
-	private String nome;
+	private String usuario;
 	
 	@Column(name="ds_senha", nullable=false)
 	private String senha;
@@ -62,7 +62,7 @@ public class Usuario {
 	
 	@Lob
 	@Column(name="fl_foto")
-	private byte foto;
+	private byte[] foto;
 	
 	@Column(name="vl_peso")
 	private double peso;
@@ -87,28 +87,13 @@ public class Usuario {
 	private List<Doacao> doacoes;
 	
 	public Usuario() { super(); }
-
-	public Usuario(String apelido, String nome, String senha, String email, Date dataNascimento, Sexo sexo, long cpf,
-			String rg, long telefone, byte foto, double peso, int altura, int pontos, Endereco endereco,
-			List<Compra> compras, List<Movimentacao> movimentacoes, List<Doacao> doacoes) {
+	
+	public Usuario(String apelido, String usuario, String senha, String email ) {
 		super();
 		this.apelido = apelido;
-		this.nome = nome;
+		this.usuario = usuario;
 		this.senha = senha;
 		this.email = email;
-		this.dataNascimento = dataNascimento;
-		this.sexo = sexo;
-		this.cpf = cpf;
-		this.rg = rg;
-		this.telefone = telefone;
-		this.foto = foto;
-		this.peso = peso;
-		this.altura = altura;
-		this.pontos = pontos;
-		this.endereco = endereco;
-		this.compras = compras;
-		this.movimentacoes = movimentacoes;
-		this.doacoes = doacoes;
 	}
 
 	public int getCodigo() {
@@ -127,12 +112,12 @@ public class Usuario {
 		this.apelido = apelido;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getSenha() {
@@ -191,11 +176,11 @@ public class Usuario {
 		this.telefone = telefone;
 	}
 
-	public byte getFoto() {
+	public byte[] getFoto() {
 		return foto;
 	}
 
-	public void setFoto(byte foto) {
+	public void setFoto(byte[] foto) {
 		this.foto = foto;
 	}
 
