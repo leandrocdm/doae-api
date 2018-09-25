@@ -32,8 +32,17 @@ public class Sangue {
 	@OneToOne(mappedBy="sangue")
 	private EstoqueSangue estoque;
 	
+	@OneToOne(mappedBy="endereco")
+	private Usuario usuario;
+	
 	public Sangue() { super(); }
 
+	public Sangue(TipoSangue tipoSangue, FatorRH fator) {
+		super();
+		this.tipoSangue = tipoSangue;
+		this.fator = fator;
+	}
+	
 	public Sangue(TipoSangue tipoSangue, FatorRH fator, EstoqueSangue estoque) {
 		super();
 		this.tipoSangue = tipoSangue;
