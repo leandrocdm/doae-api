@@ -25,7 +25,7 @@ import br.com.doae.ws.server.entity.Parceiro;
 import br.com.doae.ws.server.exception.CommitException;
 import br.com.doae.ws.server.singleton.EntityManagerFactorySingleton;
 
-@Path("/Parceiro")
+@Path("/parceiro")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ParceiroResource {
