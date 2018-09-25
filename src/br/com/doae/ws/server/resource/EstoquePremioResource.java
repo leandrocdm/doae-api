@@ -19,46 +19,46 @@ import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 
-import br.com.doae.ws.server.dao.HemocentroDAO;
-import br.com.doae.ws.server.dao.impl.HemocentroDAOImpl;
-import br.com.doae.ws.server.entity.Hemocentro;
+import br.com.doae.ws.server.dao.EstoquePremioDAO;
+import br.com.doae.ws.server.dao.impl.EstoquePremioDAOImpl;
+import br.com.doae.ws.server.entity.EstoquePremio;
 import br.com.doae.ws.server.exception.CommitException;
 import br.com.doae.ws.server.singleton.EntityManagerFactorySingleton;
 
-@Path("/hemocentro")
+@Path("/EstoquePremio")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class HemocentroResource {
-	public HemocentroDAO dao;
+public class EstoquePremioResource {
+	public EstoquePremioDAO dao;
 
-	public HemocentroResource() {
+	public EstoquePremioResource() {
 		EntityManager em = EntityManagerFactorySingleton
 				.getInstance().createEntityManager();
-		dao = new HemocentroDAOImpl(em);
+		dao = new EstoquePremioDAOImpl(em);
 	}
 
 	@GET
-	public List<Hemocentro> listar(){
+	public List<EstoquePremio> listar(){
 		return dao.listar();
 	}
 
 	@GET
 	@Path("{id}")
-	public Hemocentro pesquisar(@PathParam("id") int codigo){
+	public EstoquePremio pesquisar(@PathParam("id") int codigo){
 		return dao.pesquisar(codigo);
 	}
 
 	@POST
-	public Response cadastrar(Hemocentro hemocentro, @Context UriInfo uri) {
+	public Response cadastrar(EstoquePremio estoquePremio, @Context UriInfo uri) {
 		try {
-			dao.inserir(hemocentro);
+			dao.inserir(estoquePremio);
 			dao.commit();
 		} catch (CommitException e) {
 			e.printStackTrace();
 			return Response.serverError().build();
 		}
 		UriBuilder b = uri.getAbsolutePathBuilder();
-		b.path(String.valueOf(hemocentro.getCodigo()));
+		b.path(String.valueOf(estoquePremio.getCodigo()));
 		return Response.created(b.build()).build();
 	}
 
@@ -78,11 +78,11 @@ public class HemocentroResource {
 	
 	@PUT
 	@Path("{id}")
-	public Response atualizar(Hemocentro hemocentro,
+	public Response atualizar(EstoquePremio estoquePremio,
 					@PathParam("id") int codigo) {
 		try {
-			hemocentro.setCodigo(codigo);
-			dao.atualizar(hemocentro);
+			estoquePremio.setCodigo(codigo);
+			dao.atualizar(estoquePremio);
 			dao.commit();
 		} catch (CommitException e) {
 			e.printStackTrace();

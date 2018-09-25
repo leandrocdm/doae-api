@@ -19,46 +19,46 @@ import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 
-import br.com.doae.ws.server.dao.HemocentroDAO;
-import br.com.doae.ws.server.dao.impl.HemocentroDAOImpl;
-import br.com.doae.ws.server.entity.Hemocentro;
+import br.com.doae.ws.server.dao.DoacaoDAO;
+import br.com.doae.ws.server.dao.impl.DoacaoDAOImpl;
+import br.com.doae.ws.server.entity.Doacao;
 import br.com.doae.ws.server.exception.CommitException;
 import br.com.doae.ws.server.singleton.EntityManagerFactorySingleton;
 
-@Path("/hemocentro")
+@Path("/doacao")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class HemocentroResource {
-	public HemocentroDAO dao;
+public class DoacaoResource {
+	public DoacaoDAO dao;
 
-	public HemocentroResource() {
+	public DoacaoResource() {
 		EntityManager em = EntityManagerFactorySingleton
 				.getInstance().createEntityManager();
-		dao = new HemocentroDAOImpl(em);
+		dao = new DoacaoDAOImpl(em);
 	}
 
 	@GET
-	public List<Hemocentro> listar(){
+	public List<Doacao> listar(){
 		return dao.listar();
 	}
 
 	@GET
 	@Path("{id}")
-	public Hemocentro pesquisar(@PathParam("id") int codigo){
+	public Doacao pesquisar(@PathParam("id") int codigo){
 		return dao.pesquisar(codigo);
 	}
 
 	@POST
-	public Response cadastrar(Hemocentro hemocentro, @Context UriInfo uri) {
+	public Response cadastrar(Doacao doacao, @Context UriInfo uri) {
 		try {
-			dao.inserir(hemocentro);
+			dao.inserir(doacao);
 			dao.commit();
 		} catch (CommitException e) {
 			e.printStackTrace();
 			return Response.serverError().build();
 		}
 		UriBuilder b = uri.getAbsolutePathBuilder();
-		b.path(String.valueOf(hemocentro.getCodigo()));
+		b.path(String.valueOf(doacao.getCodigo()));
 		return Response.created(b.build()).build();
 	}
 
@@ -78,11 +78,11 @@ public class HemocentroResource {
 	
 	@PUT
 	@Path("{id}")
-	public Response atualizar(Hemocentro hemocentro,
+	public Response atualizar(Doacao doacao,
 					@PathParam("id") int codigo) {
 		try {
-			hemocentro.setCodigo(codigo);
-			dao.atualizar(hemocentro);
+			doacao.setCodigo(codigo);
+			dao.atualizar(doacao);
 			dao.commit();
 		} catch (CommitException e) {
 			e.printStackTrace();
