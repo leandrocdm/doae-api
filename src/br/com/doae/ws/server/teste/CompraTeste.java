@@ -37,21 +37,4 @@ public class CompraTeste {
 
 	EntityManager em = fabrica.createEntityManager();
 
-
-	CompraDAO compraDAO = new CompraDAOImpl(em);
-
-	try {
-		compraDAO.inserir(compra);
-		compraDAO.commit();
-		System.out.println("Parceiro e Compra adicionado com sucesso!");
-	} catch (CommitException e) {
-		e.printStackTrace();
-		System.out.println("Erro ao adicionar o Parceiro e Compra!");
-	}
-
-	em.close();
-	fabrica.close();
-}
-
-
 }
