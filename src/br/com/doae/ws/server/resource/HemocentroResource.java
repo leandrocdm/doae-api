@@ -41,6 +41,12 @@ public class HemocentroResource {
 	public List<Hemocentro> listar(){
 		return dao.listar();
 	}
+	
+	@GET
+	@Path("/endereco")
+	public List<Hemocentro> listarComHemocentros(){
+		return dao.listar();
+	}
 
 	@GET
 	@Path("{id}")

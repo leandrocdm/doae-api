@@ -69,7 +69,6 @@ public class Endereco {
 		this.estado = estado;
 	}
 
-
 	public Endereco(String logradouro, int numero, String complemento, String bairro, String cep, String cidade,
 			String estado, float latitude, float longitude) {
 		super();

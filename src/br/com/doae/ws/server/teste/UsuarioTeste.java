@@ -43,7 +43,7 @@ public class UsuarioTeste {
 			System.out.println("Usuario adicionada com sucesso!");
 		} catch (CommitException e) {
 			e.printStackTrace();
-			System.out.println("Erro ao adicionar o usuario!");
+			System.out.println("Erro ao adicionar o sangue!");
 		}
 
 		try {
