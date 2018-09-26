@@ -29,6 +29,11 @@ public class EstoquePremio {
 	private Premio premio;
 
 	public EstoquePremio() { super(); }
+	
+	public EstoquePremio(int quantidade) {
+		super();
+		this.quantidade = quantidade;
+	}
 
 	public EstoquePremio(int quantidade, Premio premio) {
 		super();

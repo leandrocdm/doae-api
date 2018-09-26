@@ -26,10 +26,6 @@ public class CompraTeste {
 
 	Compra end = new Compra();
 	Parceiro parceiro = new Parceiro();
-
-	Premio premio = new Premio("Camisa", "Camisa Doae", 1000, parceiro);
-
-
 	Compra compra = new Compra(100, new GregorianCalendar().getTime(), StatusCompra.ABERTA);
 
 	EntityManagerFactory fabrica = 

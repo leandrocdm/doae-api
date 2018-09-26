@@ -48,6 +48,13 @@ public class Hemocentro {
 	private List<Doacao> doacoes;
 
 	public Hemocentro() { super(); }
+	
+	public Hemocentro(String nome, long telefone, String email) {
+		super();
+		this.nome = nome;
+		this.telefone = telefone;
+		this.email = email;
+	}
 
 	public Hemocentro(String nome, long telefone, String email, Endereco endereco, List<EstoqueSangue> estoqueSangues,
 			List<Doacao> doacoes) {

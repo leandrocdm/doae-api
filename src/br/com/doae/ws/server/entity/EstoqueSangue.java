@@ -39,6 +39,12 @@ public class EstoqueSangue {
 	private List<Hemocentro> hemocentros;
 	
 	public EstoqueSangue() { super(); }
+	
+	public EstoqueSangue(int qtdMaxima, int qtdAtual) {
+		super();
+		this.qtdMaxima = qtdMaxima;
+		this.qtdAtual = qtdAtual;
+	}
 
 	public EstoqueSangue(int qtdMaxima, int qtdAtual, Sangue sangue, List<Hemocentro> hemocentros) {
 		super();
