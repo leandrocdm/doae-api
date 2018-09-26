@@ -92,6 +92,13 @@ public class Usuario {
 	private List<Doacao> doacoes;
 
 	public Usuario() { super(); }
+	
+	public Usuario(String apelido, String senha, String email) {
+		super();
+		this.apelido = apelido;
+		this.senha = senha;
+		this.email = email;
+	}
 
 	public Usuario(String apelido, String usuario, String senha, String email, int pontos) {
 		super();
