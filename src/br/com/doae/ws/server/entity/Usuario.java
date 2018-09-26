@@ -74,7 +74,7 @@ public class Usuario {
 	private int pontos;
 
 	@OneToOne(cascade=CascadeType.PERSIST)
-	@JoinColumn(name="cd_endereco")
+	@JoinColumn(name="cd_endereco", unique = true)
 	private Endereco endereco;
 
 	@OneToOne(cascade=CascadeType.PERSIST)

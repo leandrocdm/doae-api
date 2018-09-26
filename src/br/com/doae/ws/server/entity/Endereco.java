@@ -13,50 +13,41 @@ import javax.persistence.Table;
 @Table(name="T_DOAE_ENDERECO")
 @SequenceGenerator(name="endereco", sequenceName="SQ_DOAE_ENDERECO", allocationSize=1)
 public class Endereco {
-	
+
 	@Id
 	@Column(name="cd_endereco")
 	@GeneratedValue(generator="endereco", strategy=GenerationType.SEQUENCE)
 	private int codigo;
-	
+
 	@Column(name="ds_logradouro", nullable=false)
 	private String logradouro;
-	
+
 	@Column(name="nr_numero", nullable=false)
 	private int numero;
-	
+
 	@Column(name="ds_complemento")
 	private String complemento;
-	
+
 	@Column(name="ds_bairro", nullable=false)
 	private String bairro;
-	
+
 	@Column(name="ds_cep", nullable=false)
 	private String cep;
-	
+
 	@Column(name="ds_cidade", nullable=false)
 	private String cidade;
-	
+
 	@Column(name="ds_estado", nullable=false)
 	private String estado;
-	
+
 	@Column(name="cd_latitude")
 	private float latitude;
-	
+
 	@Column(name="cd_longitude")
 	private float longitude;
-	
-	@OneToOne(mappedBy="endereco")
-	private Usuario usuario;
-	
-	@OneToOne(mappedBy="endereco")
-	private Hemocentro hemocentro;
-	
-	@OneToOne(mappedBy="endereco")
-	private Parceiro parceiro;
-		
+
 	public Endereco() { super(); }
-	
+
 	public Endereco(String logradouro, int numero, String complemento, String bairro, String cep, String cidade,
 			String estado) {
 		super();
@@ -161,29 +152,5 @@ public class Endereco {
 
 	public void setLongitude(float longitude) {
 		this.longitude = longitude;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	public Parceiro getParceiro() {
-		return parceiro;
-	}
-
-	public void setParceiro(Parceiro parceiro) {
-		this.parceiro = parceiro;
-	}
-
-	public Hemocentro getHemocentro() {
-		return hemocentro;
-	}
-
-	public void setHemocentro(Hemocentro hemocentro) {
-		this.hemocentro = hemocentro;
 	}
 }

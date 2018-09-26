@@ -20,21 +20,21 @@ public class Parceiro {
 	@Column(name="cd_parceiro")
 	@GeneratedValue(generator="parceiro", strategy=GenerationType.SEQUENCE)
 	private int codigo;
-	
+
 	@Column(name="nm_parceiro", nullable=false)
 	private String nome;
-	
+
 	@Column(name="nr_telefone", nullable=false)
 	private long telefone;
-	
+
 	@Column(name="ds_email", nullable=false)
 	private String email;
-	
+
 	@Column(name="st_ativo", nullable=false)
 	private boolean ativo;
-	
+
 	@OneToOne(cascade=CascadeType.PERSIST)
-	@JoinColumn(name="cd_endereco")
+	@JoinColumn(name="cd_endereco", unique = true)
 	private Endereco endereco;
 
 	public Parceiro() {super();}
