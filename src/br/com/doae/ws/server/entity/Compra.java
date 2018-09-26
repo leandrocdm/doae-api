@@ -48,13 +48,11 @@ public class Compra {
 	
 	public Compra() { super(); }
 
-	public Compra(int valor, Date data, StatusCompra status, Usuario usuario, Premio premio) {
+	public Compra(int valor, Date data, StatusCompra status) {
 		super();
 		this.valor = valor;
 		this.data = data;
 		this.status = status;
-		this.usuario = usuario;
-		this.premio = premio;
 	}
 
 	public int getCodigo() {

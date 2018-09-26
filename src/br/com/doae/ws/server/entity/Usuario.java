@@ -255,6 +255,14 @@ public class Usuario {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+	
+	public Sangue getSangue() {
+		return sangue;
+	}
+
+	public void setSangue(Sangue sangue) {
+		this.sangue = sangue;
+	}
 
 	public List<Compra> getCompras() {
 		return compras;

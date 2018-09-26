@@ -42,14 +42,12 @@ public class Premio {
 	
 	public Premio() { super(); }
 
-	public Premio(String nome, String descricao, int pontos, Parceiro parceiro, Compra compra, EstoquePremio estoque) {
+	public Premio(String nome, String descricao, int pontos, Parceiro parceiro) {
 		super();
 		this.nome = nome;
 		this.descricao = descricao;
 		this.pontos = pontos;
 		this.parceiro = parceiro;
-		this.compra = compra;
-		this.estoque = estoque;
 	}
 
 	public int getCodigo() {
