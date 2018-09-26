@@ -35,6 +35,11 @@ public class Doacao {
 	private List<Usuario> usuarios;
 	
 	public Doacao() { super(); }
+	
+	public Doacao(Date data) {
+		super();
+		this.data = data;
+	}
 
 	public Doacao(Date data, List<Hemocentro> hemocentros, List<Usuario> usuarios) {
 		super();

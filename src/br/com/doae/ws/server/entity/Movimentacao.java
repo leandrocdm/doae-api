@@ -46,6 +46,16 @@ public class Movimentacao {
 	private Usuario usuario;
 	
 	public Movimentacao() {super();}
+	
+	public Movimentacao(CategoriaMovimentacao catMovimentacao, TipoMovimentacao tipoMovimentacao, int valor, Date data,
+			int pontuacaoAnterior) {
+		super();
+		this.catMovimentacao = catMovimentacao;
+		this.tipoMovimentacao = tipoMovimentacao;
+		this.valor = valor;
+		this.data = data;
+		this.pontuacaoAnterior = pontuacaoAnterior;
+	}
 
 	public Movimentacao(CategoriaMovimentacao catMovimentacao, TipoMovimentacao tipoMovimentacao, int valor, Date data,
 			int pontuacaoAnterior, Usuario usuario) {

@@ -93,24 +93,13 @@ public class Usuario {
 
 	public Usuario() { super(); }
 
-	public Usuario(String apelido, String usuario, String senha, String email ) {
-		super();
-		this.apelido = apelido;
-		this.usuario = usuario;
-		this.senha = senha;
-		this.email = email;
-	}
-
-	public Usuario(String apelido, String usuario, String senha, String email, int pontos, Endereco endereco,
-			Sangue sangue) {
+	public Usuario(String apelido, String usuario, String senha, String email, int pontos) {
 		super();
 		this.apelido = apelido;
 		this.usuario = usuario;
 		this.senha = senha;
 		this.email = email;
 		this.pontos = pontos;
-		this.endereco = endereco;
-		this.sangue = sangue;
 	}
 
 	public Usuario(String apelido, String usuario, String senha, String email, Date dataNascimento, Sexo sexo, long cpf,
@@ -255,7 +244,7 @@ public class Usuario {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	
+
 	public Sangue getSangue() {
 		return sangue;
 	}

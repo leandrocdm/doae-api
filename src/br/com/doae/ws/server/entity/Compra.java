@@ -55,6 +55,15 @@ public class Compra {
 		this.status = status;
 	}
 
+	public Compra(int valor, Date data, StatusCompra status, Usuario usuario, Premio premio) {
+		super();
+		this.valor = valor;
+		this.data = data;
+		this.status = status;
+		this.usuario = usuario;
+		this.premio = premio;
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}

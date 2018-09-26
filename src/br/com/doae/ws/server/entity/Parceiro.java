@@ -39,6 +39,14 @@ public class Parceiro {
 
 	public Parceiro() {super();}
 
+	public Parceiro(String nome, long telefone, String email, boolean ativo) {
+		super();
+		this.nome = nome;
+		this.telefone = telefone;
+		this.email = email;
+		this.ativo = ativo;
+	}
+
 	public Parceiro(String nome, long telefone, String email, boolean ativo, Endereco endereco) {
 		super();
 		this.nome = nome;

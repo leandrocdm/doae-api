@@ -23,10 +23,8 @@ public class UsuarioTeste {
 
 		Endereco endereco = new Endereco("Rua Manuel Leitao Avilez", 150, "sem complemento", "Bortolandia", "02352120", "Sao Paulo", "SP");
 		Sangue sangue = new Sangue(TipoSangue.O, FatorRH.POSITIVO);		
-		
-		Usuario usuario = new Usuario("Le", "leandrocdm", "123123", "leandrocdm@live.com", 1000, endereco, sangue);
-		
-		
+
+		Usuario usuario = new Usuario("Le", "leandrocdm", "123123", "leandrocdm@live.com", 1000);
 
 		EntityManagerFactory fabrica = 
 				EntityManagerFactorySingleton.getInstance();
