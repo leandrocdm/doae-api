@@ -32,7 +32,7 @@ public class Endereco {
 	private String bairro;
 	
 	@Column(name="ds_cep", nullable=false)
-	private long cep;
+	private String cep;
 	
 	@Column(name="ds_cidade", nullable=false)
 	private String cidade;
@@ -57,7 +57,7 @@ public class Endereco {
 		
 	public Endereco() { super(); }
 	
-	public Endereco(String logradouro, int numero, String complemento, String bairro, long cep, String cidade,
+	public Endereco(String logradouro, int numero, String complemento, String bairro, String cep, String cidade,
 			String estado) {
 		super();
 		this.logradouro = logradouro;
@@ -70,7 +70,7 @@ public class Endereco {
 	}
 
 
-	public Endereco(String logradouro, int numero, String complemento, String bairro, long cep, String cidade,
+	public Endereco(String logradouro, int numero, String complemento, String bairro, String cep, String cidade,
 			String estado, float latitude, float longitude) {
 		super();
 		this.logradouro = logradouro;
@@ -124,11 +124,11 @@ public class Endereco {
 		this.bairro = bairro;
 	}
 
-	public long getCep() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCep(long cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 

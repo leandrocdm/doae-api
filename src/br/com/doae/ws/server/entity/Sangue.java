@@ -32,7 +32,7 @@ public class Sangue {
 	@OneToOne(mappedBy="sangue")
 	private EstoqueSangue estoque;
 	
-	@OneToOne(mappedBy="endereco")
+	@OneToOne(mappedBy="sangue")
 	private Usuario usuario;
 	
 	public Sangue() { super(); }

@@ -18,7 +18,7 @@ public class EnderecoTeste {
 		end.setLogradouro("R. Manuel Leitao Avilez");
 		end.setNumero(150);
 		end.setBairro("Bortolandia");
-		end.setCep(02352120);
+		end.setCep("02352120");
 		end.setCidade("Sao Paulo");
 		end.setEstado("SP");
 		

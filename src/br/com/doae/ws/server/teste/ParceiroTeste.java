@@ -21,7 +21,7 @@ public class ParceiroTeste {
 		end.setLogradouro("Avenida Paulista");
 		end.setNumero(150);
 		end.setBairro("Jardins");
-		end.setCep(02323232);
+		end.setCep("02323232");
 		end.setCidade("Sao Paulo");
 		end.setEstado("SP");
 
