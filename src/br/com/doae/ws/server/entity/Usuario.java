@@ -35,7 +35,7 @@ public class Usuario {
 	@Column(name="nm_apelido", nullable=false)
 	private String apelido;
 
-	@Column(name="nm_usuario", nullable=false)
+	@Column(name="nm_usuario")
 	private String usuario;
 
 	@Column(name="ds_senha", nullable=false)
