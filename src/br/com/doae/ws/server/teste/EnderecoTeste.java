@@ -1,13 +1,12 @@
 package br.com.doae.ws.server.teste;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 
 import br.com.doae.ws.server.dao.EnderecoDAO;
 import br.com.doae.ws.server.dao.impl.EnderecoDAOImpl;
 import br.com.doae.ws.server.entity.Endereco;
 import br.com.doae.ws.server.exception.CommitException;
-import br.com.doae.ws.server.singleton.EntityManagerFactorySingleton;
+import br.com.doae.ws.server.singleton.EntityManagerSingleton;
 
 public class EnderecoTeste {
 	
@@ -22,10 +21,9 @@ public class EnderecoTeste {
 		end.setCidade("Sao Paulo");
 		end.setEstado("SP");
 		
-		EntityManagerFactory fabrica = 
-				EntityManagerFactorySingleton.getInstance();
+		EntityManager em = 
+				EntityManagerSingleton.getInstance();
 		
-			EntityManager em = fabrica.createEntityManager();
 
 			EnderecoDAO dao = 
 					new EnderecoDAOImpl(em);
@@ -40,6 +38,5 @@ public class EnderecoTeste {
 			}
 			
 			em.close();
-			fabrica.close();
 	}
 }

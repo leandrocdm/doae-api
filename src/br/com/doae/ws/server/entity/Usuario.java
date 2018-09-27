@@ -41,7 +41,7 @@ public class Usuario {
 	@Column(name="ds_senha", nullable=false)
 	private String senha;
 
-	@Column(name="ds_email", nullable=false)
+	@Column(name="ds_email", nullable=false, unique=true)
 	private String email;
 
 	@Column(name="dt_nascimento")

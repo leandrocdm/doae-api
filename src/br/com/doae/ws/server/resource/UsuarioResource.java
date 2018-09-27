@@ -23,7 +23,7 @@ import br.com.doae.ws.server.dao.UsuarioDAO;
 import br.com.doae.ws.server.dao.impl.UsuarioDAOImpl;
 import br.com.doae.ws.server.entity.Usuario;
 import br.com.doae.ws.server.exception.CommitException;
-import br.com.doae.ws.server.singleton.EntityManagerFactorySingleton;
+import br.com.doae.ws.server.singleton.EntityManagerSingleton;
 
 @Path("/usuario")
 @Produces(MediaType.APPLICATION_JSON)
@@ -32,8 +32,8 @@ public class UsuarioResource {
 	public UsuarioDAO dao;
 
 	public UsuarioResource() {
-		EntityManager em = EntityManagerFactorySingleton
-				.getInstance().createEntityManager();
+		EntityManager em = EntityManagerSingleton
+				.getInstance();
 		dao = new UsuarioDAOImpl(em);
 	}
 

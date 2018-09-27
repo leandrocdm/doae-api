@@ -23,7 +23,7 @@ import br.com.doae.ws.server.dao.MovimentacaoDAO;
 import br.com.doae.ws.server.dao.impl.MovimentacaoDAOImpl;
 import br.com.doae.ws.server.entity.Movimentacao;
 import br.com.doae.ws.server.exception.CommitException;
-import br.com.doae.ws.server.singleton.EntityManagerFactorySingleton;
+import br.com.doae.ws.server.singleton.EntityManagerSingleton;
 
 @Path("/movimentacao")
 @Produces(MediaType.APPLICATION_JSON)
@@ -32,8 +32,8 @@ public class MovimentacaoResource {
 	public MovimentacaoDAO dao;
 
 	public MovimentacaoResource() {
-		EntityManager em = EntityManagerFactorySingleton
-				.getInstance().createEntityManager();
+		EntityManager em = EntityManagerSingleton
+				.getInstance();
 		dao = new MovimentacaoDAOImpl(em);
 	}
 

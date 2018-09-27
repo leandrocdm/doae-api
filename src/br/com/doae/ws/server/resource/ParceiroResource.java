@@ -23,7 +23,7 @@ import br.com.doae.ws.server.dao.ParceiroDAO;
 import br.com.doae.ws.server.dao.impl.ParceiroDAOImpl;
 import br.com.doae.ws.server.entity.Parceiro;
 import br.com.doae.ws.server.exception.CommitException;
-import br.com.doae.ws.server.singleton.EntityManagerFactorySingleton;
+import br.com.doae.ws.server.singleton.EntityManagerSingleton;
 
 @Path("/parceiro")
 @Produces(MediaType.APPLICATION_JSON)
@@ -32,8 +32,8 @@ public class ParceiroResource {
 	public ParceiroDAO dao;
 
 	public ParceiroResource() {
-		EntityManager em = EntityManagerFactorySingleton
-				.getInstance().createEntityManager();
+		EntityManager em = EntityManagerSingleton
+				.getInstance();
 		dao = new ParceiroDAOImpl(em);
 	}
 

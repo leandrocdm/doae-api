@@ -23,7 +23,7 @@ import br.com.doae.ws.server.dao.HemocentroDAO;
 import br.com.doae.ws.server.dao.impl.HemocentroDAOImpl;
 import br.com.doae.ws.server.entity.Hemocentro;
 import br.com.doae.ws.server.exception.CommitException;
-import br.com.doae.ws.server.singleton.EntityManagerFactorySingleton;
+import br.com.doae.ws.server.singleton.EntityManagerSingleton;
 
 @Path("/hemocentro")
 @Produces(MediaType.APPLICATION_JSON)
@@ -32,8 +32,8 @@ public class HemocentroResource {
 	public HemocentroDAO dao;
 
 	public HemocentroResource() {
-		EntityManager em = EntityManagerFactorySingleton
-				.getInstance().createEntityManager();
+		EntityManager em = EntityManagerSingleton
+				.getInstance();
 		dao = new HemocentroDAOImpl(em);
 	}
 

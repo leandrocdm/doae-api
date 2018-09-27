@@ -23,7 +23,7 @@ import br.com.doae.ws.server.dao.EnderecoDAO;
 import br.com.doae.ws.server.dao.impl.EnderecoDAOImpl;
 import br.com.doae.ws.server.entity.Endereco;
 import br.com.doae.ws.server.exception.CommitException;
-import br.com.doae.ws.server.singleton.EntityManagerFactorySingleton;
+import br.com.doae.ws.server.singleton.EntityManagerSingleton;
 
 @Path("/endereco")
 @Produces(MediaType.APPLICATION_JSON)
@@ -32,8 +32,8 @@ public class EnderecoResource {
 	public EnderecoDAO dao;
 
 	public EnderecoResource() {
-		EntityManager em = EntityManagerFactorySingleton
-				.getInstance().createEntityManager();
+		EntityManager em = EntityManagerSingleton
+				.getInstance();
 		dao = new EnderecoDAOImpl(em);
 	}
 

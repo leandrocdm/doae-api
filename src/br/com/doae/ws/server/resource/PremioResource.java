@@ -23,7 +23,7 @@ import br.com.doae.ws.server.dao.PremioDAO;
 import br.com.doae.ws.server.dao.impl.PremioDAOImpl;
 import br.com.doae.ws.server.entity.Premio;
 import br.com.doae.ws.server.exception.CommitException;
-import br.com.doae.ws.server.singleton.EntityManagerFactorySingleton;
+import br.com.doae.ws.server.singleton.EntityManagerSingleton;
 
 @Path("/premio")
 @Produces(MediaType.APPLICATION_JSON)
@@ -32,8 +32,8 @@ public class PremioResource {
 	public PremioDAO dao;
 
 	public PremioResource() {
-		EntityManager em = EntityManagerFactorySingleton
-				.getInstance().createEntityManager();
+		EntityManager em = EntityManagerSingleton
+				.getInstance();
 		dao = new PremioDAOImpl(em);
 	}
 

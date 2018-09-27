@@ -23,7 +23,7 @@ import br.com.doae.ws.server.dao.EstoqueSangueDAO;
 import br.com.doae.ws.server.dao.impl.EstoqueSangueDAOImpl;
 import br.com.doae.ws.server.entity.EstoqueSangue;
 import br.com.doae.ws.server.exception.CommitException;
-import br.com.doae.ws.server.singleton.EntityManagerFactorySingleton;
+import br.com.doae.ws.server.singleton.EntityManagerSingleton;
 
 @Path("/estoquesangue")
 @Produces(MediaType.APPLICATION_JSON)
@@ -32,8 +32,8 @@ public class EstoqueSangueResource {
 	public EstoqueSangueDAO dao;
 
 	public EstoqueSangueResource() {
-		EntityManager em = EntityManagerFactorySingleton
-				.getInstance().createEntityManager();
+		EntityManager em = EntityManagerSingleton
+				.getInstance();
 		dao = new EstoqueSangueDAOImpl(em);
 	}
 

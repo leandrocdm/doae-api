@@ -23,7 +23,7 @@ import br.com.doae.ws.server.dao.CompraDAO;
 import br.com.doae.ws.server.dao.impl.CompraDAOImpl;
 import br.com.doae.ws.server.entity.Compra;
 import br.com.doae.ws.server.exception.CommitException;
-import br.com.doae.ws.server.singleton.EntityManagerFactorySingleton;
+import br.com.doae.ws.server.singleton.EntityManagerSingleton;
 
 @Path("/compra")
 @Produces(MediaType.APPLICATION_JSON)
@@ -32,8 +32,8 @@ public class CompraResource {
 	public CompraDAO dao;
 
 	public CompraResource() {
-		EntityManager em = EntityManagerFactorySingleton
-				.getInstance().createEntityManager();
+		EntityManager em = EntityManagerSingleton
+				.getInstance();
 		dao = new CompraDAOImpl(em);
 	}
 

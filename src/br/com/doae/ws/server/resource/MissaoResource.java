@@ -23,8 +23,7 @@ import br.com.doae.ws.server.dao.MissaoDAO;
 import br.com.doae.ws.server.dao.impl.MissaoDAOImpl;
 import br.com.doae.ws.server.entity.Missao;
 import br.com.doae.ws.server.exception.CommitException;
-import br.com.doae.ws.server.singleton.EntityManagerFactorySingleton;
-
+import br.com.doae.ws.server.singleton.EntityManagerSingleton;
 
 @Path("/missao")
 @Produces(MediaType.APPLICATION_JSON)
@@ -33,8 +32,8 @@ public class MissaoResource {
 	public MissaoDAO dao;
 
 	public MissaoResource() {
-		EntityManager em = EntityManagerFactorySingleton
-				.getInstance().createEntityManager();
+		EntityManager em = EntityManagerSingleton
+				.getInstance();
 		dao = new MissaoDAOImpl(em);
 	}
 
