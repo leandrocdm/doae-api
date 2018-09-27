@@ -23,7 +23,7 @@ import br.com.doae.ws.server.dao.EstoquePremioDAO;
 import br.com.doae.ws.server.dao.impl.EstoquePremioDAOImpl;
 import br.com.doae.ws.server.entity.EstoquePremio;
 import br.com.doae.ws.server.exception.CommitException;
-import br.com.doae.ws.server.singleton.EntityManagerFactorySingleton;
+import br.com.doae.ws.server.singleton.EntityManagerSingleton;
 
 @Path("/estoquepremio")
 @Produces(MediaType.APPLICATION_JSON)
@@ -32,8 +32,8 @@ public class EstoquePremioResource {
 	public EstoquePremioDAO dao;
 
 	public EstoquePremioResource() {
-		EntityManager em = EntityManagerFactorySingleton
-				.getInstance().createEntityManager();
+		EntityManager em = EntityManagerSingleton
+				.getInstance();
 		dao = new EstoquePremioDAOImpl(em);
 	}
 
