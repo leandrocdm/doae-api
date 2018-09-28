@@ -25,7 +25,7 @@ public class Doacao {
 	private int codigo;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name="dt_doacao", nullable=false)
+	@Column(name="dt_doacao")
 	private Date data;
 	
     @ManyToOne
