@@ -1,6 +1,5 @@
 package br.com.doae.ws.server.entity;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,14 +8,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -80,17 +76,7 @@ public class Usuario {
 	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="cd_sangue")
 	private Sangue sangue;
-
-	@OneToMany(mappedBy="usuario", cascade = CascadeType.PERSIST)
-	private List<Compra> compras = new ArrayList<>();
-
-	@OneToMany(mappedBy="usuario", cascade = CascadeType.PERSIST)
-	private List<Movimentacao> movimentacoes = new ArrayList<>();
-
-	@ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
-	@JoinTable(name="T_DOAE_DOACAO", joinColumns=@JoinColumn(name="cd_usuario"), inverseJoinColumns=@JoinColumn(name="cd_doacao"))
-	private List<Doacao> doacoes;
-
+	
 	public Usuario() { super(); }
 	
 	public Usuario(String apelido, String senha, String email) {
@@ -110,8 +96,7 @@ public class Usuario {
 	}
 
 	public Usuario(String apelido, String usuario, String senha, String email, Date dataNascimento, Sexo sexo, long cpf,
-			String rg, long telefone, byte[] foto, double peso, int altura, int pontos, Endereco endereco,
-			List<Compra> compras, List<Movimentacao> movimentacoes, List<Doacao> doacoes) {
+			String rg, long telefone, byte[] foto, double peso, int altura, int pontos, Endereco endereco) {
 		super();
 		this.apelido = apelido;
 		this.usuario = usuario;
@@ -127,9 +112,6 @@ public class Usuario {
 		this.altura = altura;
 		this.pontos = pontos;
 		this.endereco = endereco;
-		this.compras = compras;
-		this.movimentacoes = movimentacoes;
-		this.doacoes = doacoes;
 	}
 
 	public int getCodigo() {
@@ -258,29 +240,5 @@ public class Usuario {
 
 	public void setSangue(Sangue sangue) {
 		this.sangue = sangue;
-	}
-
-	public List<Compra> getCompras() {
-		return compras;
-	}
-
-	public void setCompras(List<Compra> compras) {
-		this.compras = compras;
-	}
-
-	public List<Movimentacao> getMovimentacoes() {
-		return movimentacoes;
-	}
-
-	public void setMovimentacoes(List<Movimentacao> movimentacoes) {
-		this.movimentacoes = movimentacoes;
-	}
-
-	public List<Doacao> getDoacoes() {
-		return doacoes;
-	}
-
-	public void setDoacoes(List<Doacao> doacoes) {
-		this.doacoes = doacoes;
 	}
 }
