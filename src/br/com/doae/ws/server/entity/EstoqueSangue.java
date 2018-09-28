@@ -1,7 +1,5 @@
 package br.com.doae.ws.server.entity;
 
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -34,9 +31,9 @@ public class EstoqueSangue {
 	@JoinColumn(name="cd_sangue")
 	private Sangue sangue;
 	
-	
-	@ManyToMany(mappedBy="estoqueSangues")
-	private List<Hemocentro> hemocentros;
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="cd_hemocentro")
+	private Hemocentro hemocentro;
 	
 	public EstoqueSangue() { super(); }
 	
@@ -46,12 +43,12 @@ public class EstoqueSangue {
 		this.qtdAtual = qtdAtual;
 	}
 
-	public EstoqueSangue(int qtdMaxima, int qtdAtual, Sangue sangue, List<Hemocentro> hemocentros) {
+	public EstoqueSangue(int qtdMaxima, int qtdAtual, Sangue sangue, Hemocentro hemocentro) {
 		super();
 		this.qtdMaxima = qtdMaxima;
 		this.qtdAtual = qtdAtual;
 		this.sangue = sangue;
-		this.hemocentros = hemocentros;
+		this.hemocentro = hemocentro;
 	}
 
 	public int getCodigo() {
@@ -86,11 +83,11 @@ public class EstoqueSangue {
 		this.sangue = sangue;
 	}
 
-	public List<Hemocentro> getHemocentros() {
-		return hemocentros;
+	public Hemocentro getHemocentro() {
+		return hemocentro;
 	}
 
-	public void setHemocentros(List<Hemocentro> hemocentros) {
-		this.hemocentros = hemocentros;
+	public void setHemocentro(Hemocentro hemocentro) {
+		this.hemocentro = hemocentro;
 	}
 }
