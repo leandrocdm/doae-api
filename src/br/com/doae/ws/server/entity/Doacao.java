@@ -2,13 +2,14 @@ package br.com.doae.ws.server.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -28,11 +29,11 @@ public class Doacao {
 	@Column(name="dt_doacao")
 	private Date data;
 	
-    @ManyToOne
-    @JoinColumn(name = "cd_hemocentro")
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="cd_hemocentro")
 	private Hemocentro hemocentro;
 	
-	@ManyToOne
+	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="cd_usuario")
 	private Usuario usuario;
 	

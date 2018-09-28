@@ -1,12 +1,12 @@
 package br.com.doae.ws.server.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -30,12 +30,9 @@ public class Premio {
 	@Column(name="vl_pontos", nullable=false)
 	private int pontos;
 	
-	@ManyToOne
+	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="cd_parceiro")
 	private Parceiro parceiro;
-		
-	@OneToOne(mappedBy="premio")
-	private EstoquePremio estoque;
 	
 	public Premio() { super(); }
 
@@ -46,13 +43,12 @@ public class Premio {
 		this.pontos = pontos;
 	}
 
-	public Premio(String nome, String descricao, int pontos, Parceiro parceiro, EstoquePremio estoque) {
+	public Premio(String nome, String descricao, int pontos, Parceiro parceiro) {
 		super();
 		this.nome = nome;
 		this.descricao = descricao;
 		this.pontos = pontos;
 		this.parceiro = parceiro;
-		this.estoque = estoque;
 	}
 
 	public int getCodigo() {
@@ -93,13 +89,5 @@ public class Premio {
 
 	public void setParceiro(Parceiro parceiro) {
 		this.parceiro = parceiro;
-	}
-
-	public EstoquePremio getEstoque() {
-		return estoque;
-	}
-
-	public void setEstoque(EstoquePremio estoque) {
-		this.estoque = estoque;
 	}
 }

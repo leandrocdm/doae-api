@@ -25,7 +25,7 @@ public class Parceiro {
 	private String nome;
 
 	@Column(name="nr_telefone", nullable=false)
-	private long telefone;
+	private String telefone;
 
 	@Column(name="ds_email", nullable=false)
 	private String email;
@@ -39,7 +39,7 @@ public class Parceiro {
 
 	public Parceiro() {super();}
 
-	public Parceiro(String nome, long telefone, String email, boolean ativo) {
+	public Parceiro(String nome, String telefone, String email, boolean ativo) {
 		super();
 		this.nome = nome;
 		this.telefone = telefone;
@@ -47,7 +47,7 @@ public class Parceiro {
 		this.ativo = ativo;
 	}
 
-	public Parceiro(String nome, long telefone, String email, boolean ativo, Endereco endereco) {
+	public Parceiro(String nome, String telefone, String email, boolean ativo, Endereco endereco) {
 		super();
 		this.nome = nome;
 		this.telefone = telefone;
@@ -72,11 +72,11 @@ public class Parceiro {
 		this.nome = nome;
 	}
 
-	public long getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(long numero) {
+	public void setTelefone(String numero) {
 		this.telefone = numero;
 	}
 
