@@ -33,9 +33,6 @@ public class Premio {
 	@ManyToOne
 	@JoinColumn(name="cd_parceiro")
 	private Parceiro parceiro;
-	
-	@OneToOne(mappedBy="premio")
-	private Compra compra;
 		
 	@OneToOne(mappedBy="premio")
 	private EstoquePremio estoque;
@@ -49,13 +46,12 @@ public class Premio {
 		this.pontos = pontos;
 	}
 
-	public Premio(String nome, String descricao, int pontos, Parceiro parceiro, Compra compra, EstoquePremio estoque) {
+	public Premio(String nome, String descricao, int pontos, Parceiro parceiro, EstoquePremio estoque) {
 		super();
 		this.nome = nome;
 		this.descricao = descricao;
 		this.pontos = pontos;
 		this.parceiro = parceiro;
-		this.compra = compra;
 		this.estoque = estoque;
 	}
 
@@ -97,14 +93,6 @@ public class Premio {
 
 	public void setParceiro(Parceiro parceiro) {
 		this.parceiro = parceiro;
-	}
-
-	public Compra getCompra() {
-		return compra;
-	}
-
-	public void setCompra(Compra compra) {
-		this.compra = compra;
 	}
 
 	public EstoquePremio getEstoque() {

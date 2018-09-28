@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -43,8 +44,8 @@ public class Hemocentro {
 	@JoinTable(name="T_DOAE_EST_SANGUE", joinColumns=@JoinColumn(name="cd_hemocentro"), inverseJoinColumns=@JoinColumn(name="cd_est_sangue"))
 	private List<EstoqueSangue> estoqueSangues;
 
-	@ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
-	@JoinTable(name="T_DOAE_DOACAO", joinColumns=@JoinColumn(name="cd_hemocentro"), inverseJoinColumns=@JoinColumn(name="cd_doacao"))
+	@OneToMany
+    @JoinColumn(name = "cd_hemocentro")
 	private List<Doacao> doacoes;
 
 	public Hemocentro() { super(); }
